@@ -20,8 +20,8 @@ from openpyxl.chart import (LineChart, Reference, Series)
 from string import ascii_uppercase
 
 #Opens and creates the relevant spreadsheets
-data ="C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Baseball_Data.xlsx"
-#data ="C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Baseball_Data.xlsx"
+#data ="C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Baseball_Data.xlsx"
+data ="C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Baseball_Data.xlsx"
 data_book = xl.load_workbook(data, data_only=True)
 new_book = xl.Workbook()
 new_book_data = new_book.worksheets[0]
