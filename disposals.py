@@ -38,13 +38,21 @@ worksheet.cell(1, i+5).value = "20+ Odds"
 worksheet.cell(1, i+6).value = "20+ Difference"
 worksheet.column_dimensions['S'].width = 15
 
-worksheet.cell(1, i+7).value = "30+ Percentage"
+worksheet.cell(1, i+7).value = "25+ Percentage"
 worksheet.column_dimensions['T'].width = 15
-worksheet.cell(1, i+8).value = "30+ Req Odds"
+worksheet.cell(1, i+8).value = "25+ Req Odds"
 worksheet.column_dimensions['U'].width = 15
-worksheet.cell(1, i+9).value = "30+ Odds"
-worksheet.cell(1, i+10).value = "30+ Difference"
+worksheet.cell(1, i+9).value = "25+ Odds"
+worksheet.cell(1, i+10).value = "25+ Difference"
 worksheet.column_dimensions['W'].width = 15
+
+worksheet.cell(1, i+11).value = "30+ Percentage"
+worksheet.column_dimensions['Y'].width = 15
+worksheet.cell(1, i+12).value = "30+ Req Odds"
+worksheet.column_dimensions['Z'].width = 15
+worksheet.cell(1, i+13).value = "30+ Odds"
+worksheet.cell(1, i+14).value = "30+ Difference"
+worksheet.column_dimensions['AB'].width = 15
 
 for site in urls:
     print(site)
@@ -137,8 +145,12 @@ for site in urls:
         worksheet.cell(a+2+depth, t+5).value = (1-norm.cdf(19, avg, np.std(values_numpy)))*100
         worksheet.cell(a+2+depth, t+6).value = 1/(worksheet.cell(a+2+depth, t+5).value/100)
 
-        worksheet.cell(a+2+depth, t+9).value = (1-norm.cdf(29, avg, np.std(values_numpy)))*100
+        worksheet.cell(a+2+depth, t+9).value = (1-norm.cdf(24, avg, np.std(values_numpy)))*100
         worksheet.cell(a+2+depth, t+10).value = 1/(worksheet.cell(a+2+depth, t+9).value/100)
+
+
+        worksheet.cell(a+2+depth, t+13).value = (1-norm.cdf(29, avg, np.std(values_numpy)))*100
+        worksheet.cell(a+2+depth, t+14).value = 1/(worksheet.cell(a+2+depth, t+13).value/100)
     depth = depth + len(players)
 
 
