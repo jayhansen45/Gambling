@@ -1,9 +1,18 @@
 """ TO DO
 Add in the time on ground filter
+    Maybe outlier if I can be fucked
+
+Add minimum games filter
+    Games played column maybe?
+    Or just do an if statement and set the average to 0 if < 7
 
 Pull out the odds from sportsbet
 
 Fix for when it isn't 13 games
+
+Add in the difference column formula
+
+Add in the max difference formula
 
 Add comments below
 
