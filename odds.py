@@ -1,16 +1,16 @@
 """
 Tidy EVERYTHING up
 
-Make it so that it automatically runs through all the links to games
-    Can be a question in command line if needed
+While loop that runs while input != "Run please"
+Stores the urls in an array
+
+While loop that loops through the array and gets data on all of the matches
 
 Add comments
 
 Fix if it is SUS
 
 Add in the 15+ column
-
-
 
 """
 
@@ -29,19 +29,19 @@ from datetime import datetime, timedelta, date
 import shutil
 import os
 
-#filename ="C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Disposals Tracking.xlsx"
-filename = "C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Disposals Tracking.xlsx"
+filename ="C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Disposals Tracking.xlsx"
+#filename = "C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Disposals Tracking.xlsx"
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument("--incognito")
-#os.chmod('C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\chromedriver_win32\\chromedriver.exe', 0o755)
+os.chmod('C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\chromedriver_win32\\chromedriver.exe', 0o755)
 
-#driver = webdriver.Chrome(executable_path=r"C:\Users\jhansen3\OneDrive - KPMG\Documents\Python\Gambling\chromedriver_win32\chromedriver.exe")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver = webdriver.Chrome(executable_path=r"C:\Users\jhansen3\OneDrive - KPMG\Documents\Python\Gambling\chromedriver_win32\chromedriver.exe")
+#driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-driver.get('https://www.sportsbet.com.au/betting/australian-rules/afl/st-kilda-v-essendon-6597345')
+driver.get('https://www.sportsbet.com.au/betting/australian-rules/afl/port-adelaide-v-sydney-6597348')
 
 element = driver.find_elements(By.XPATH, '//*[@data-automation-id="market-group-accordion-header-title"]')
 
