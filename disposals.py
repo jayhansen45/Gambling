@@ -5,8 +5,6 @@ Fix for when it isn't 13 games
 
 Try again with autosizing
 
-Add comments below
-
 """
 
 import openpyxl as xl
@@ -18,6 +16,7 @@ import warnings
 from scipy.stats import norm
 from bs4 import BeautifulSoup
 
+#Ignore warnings and creates the required variables
 warnings.filterwarnings("ignore")
 urls = ['https://afltables.com/afl/stats/teams/adelaide/2022_gbg.html', 'https://afltables.com/afl/stats/teams/brisbanel/2022_gbg.html', 'https://afltables.com/afl/stats/teams/carlton/2022_gbg.html', 'https://afltables.com/afl/stats/teams/collingwood/2022_gbg.html', 'https://afltables.com/afl/stats/teams/essendon/2022_gbg.html', 'https://afltables.com/afl/stats/teams/fremantle/2022_gbg.html', 'https://afltables.com/afl/stats/teams/geelong/2022_gbg.html', 'https://afltables.com/afl/stats/teams/goldcoast/2022_gbg.html', 'https://afltables.com/afl/stats/teams/gws/2022_gbg.html', 'https://afltables.com/afl/stats/teams/hawthorn/2022_gbg.html', 'https://afltables.com/afl/stats/teams/melbourne/2022_gbg.html', 'https://afltables.com/afl/stats/teams/kangaroos/2022_gbg.html', 'https://afltables.com/afl/stats/teams/padelaide/2022_gbg.html', 'https://afltables.com/afl/stats/teams/richmond/2022_gbg.html', 'https://afltables.com/afl/stats/teams/stkilda/2022_gbg.html', 'https://afltables.com/afl/stats/teams/bullldogs/2022_gbg.html', 'https://afltables.com/afl/stats/teams/westcoast/2022_gbg.html', 'https://afltables.com/afl/stats/teams/swans/2022_gbg.html']
 depth = 0
@@ -26,6 +25,8 @@ games = 13
 workbook = xl.Workbook()
 worksheet = workbook.worksheets[0]
 
+
+#Creates the top row for all of the columns in the file
 worksheet.cell(1, 1).value = "Team"
 worksheet.column_dimensions['B'].width = 15
 worksheet.cell(1, 2).value = "Players"
@@ -63,6 +64,7 @@ worksheet.cell(1, i+23).value = "Max Difference"
 j=i
 i=0
 
+#Widens all of the columns
 for i in range(1, j+23+1):
     if i > 26:
         worksheet.column_dimensions['A'+ string.ascii_uppercase[i-1-26]].width = 15       
@@ -70,23 +72,28 @@ for i in range(1, j+23+1):
         worksheet.column_dimensions[string.ascii_uppercase[i-1]].width = 15
 
 
+#Loops through all of the sites for each of the teams
 for site in urls:
     print(site)
     webpage_response = requests.get(site)
     webpage = webpage_response.content
     soup = BeautifulSoup(webpage, "html.parser")
 
+    #Finds the correct attributes
     table = soup.find_all(attrs={'class':'sortable'})
     team = soup.find('h2').text
     team = team.split('-')
 
-    
+
+    #Pulls out the disposals and the time on ground
     messy_disposals = table[0].find_all('td')
     messy_tog = table[21].find_all('td')
 
     disposals = []
     tog = []
 
+
+    #Gets text of the disposals and time on ground and puts in array
     for a in messy_disposals:
         if (a.text == '\xa0' or a.text == '-'):
             a = '0'
@@ -103,6 +110,7 @@ for site in urls:
 
     i = 1
 
+    #Finds total number of games
     while disposals[i].isnumeric():
         i=i+1
 
@@ -112,6 +120,7 @@ for site in urls:
 
     i=0
 
+    #Pulls out the players from the large array
     while (i < len(disposals)):
         gross_players.append(disposals.pop(i))
         tog.pop(i)
@@ -119,12 +128,14 @@ for site in urls:
 
     players = []
 
+    #Puts the players in the same format as the odds site
     for i in range(0, len(gross_players)):
         gross_players[i] = gross_players[i].split(', ')
         players.append(gross_players[i][1] + " " + gross_players[i][0])
 
     i=games
 
+    #Gets rid of the totals in the array
     while (i < len(disposals)):
         disposals.pop(i)
         tog.pop(i)
@@ -134,9 +145,10 @@ for site in urls:
     c=0
 
 
-
+    #Makes the array a numpy array
     disposals_numpy = np.array(disposals)
 
+    #Reshapes it so that it is a 2D array
     disp = disposals_numpy.reshape(len(players), games)
 
     tog_numpy = np.array(tog)
@@ -146,12 +158,14 @@ for site in urls:
     sum = 0
 
 
+    #Pastes all of the relevant values
     for a in range(0, len(players)):
         sum = 0
         count = 0
         values = []
         worksheet.cell(a+2+depth, 1).value = team[0]
         worksheet.cell(a+2+depth, 2).value = players[a]
+        #Pastes all of the disposals in the sheet with the parameters
         for t in range(0, games):
             worksheet.cell(a+2+depth, t+3).value = int(disp[a][t])
             if int(time[a][t]) < 60:
@@ -166,8 +180,6 @@ for site in urls:
         else:
             avg = 0
 
-        if games < 13:
-            t = t + 1
         worksheet.cell(a+2+depth, t+4).value = avg
         values_numpy = np.array(values)
         worksheet.cell(a+2+depth, t+5).value = np.std(values_numpy)

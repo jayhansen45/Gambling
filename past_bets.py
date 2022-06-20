@@ -10,3 +10,11 @@ Just keep adding further data to the right hand side of the data
 
 
 Summary tab has count of the people who pay out the most often
+
+Add a second sheet
+    Has the game
+    Has the multi and all the singles for each of these
+    Greater 60% probability
+    Find highest odds difference
+    Two highest odds difference above 90% for multi
+    Maybe make this a separate script to run that can be used to track bets
