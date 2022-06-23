@@ -5,6 +5,8 @@ Pull out the games being played that day and filter to show just them
 
 Add a "Cleanse" option to remove all odds and fill again
 
+Test
+
 """
 
 import requests
