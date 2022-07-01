@@ -1,20 +1,33 @@
-import ...
+"""
+open file and check the bets from previous week
 
 read from the Disposals tracking file
-pull out all of the odds from this and save it in the past_bets doc
+pull out all of the odds from this and save it new tab of the past_bets doc
 title it round X
-have a Y or no if it is a win
-Have a summary page that tracks all of the wins
 
-Just keep adding further data to the right hand side of the data
+Has a section for each game and split into multi and singles
+multi
+    highest odds difference and above 90% percentage
+singles
+    5 highest above 60% percentage
+"""
+
+    
+import openpyxl as xl
+
+disposals_filename ="C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Disposals Tracking.xlsx"
+disposals = xl.load_workbook(disposals_filename)
 
 
-Summary tab has count of the people who pay out the most often
+bets_filename = "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Bets.xlsx"
+bets = xl.Workbook(bets_filename)
+bets_sheet = bets.create_sheet(0)
+bets_sheet.title = "Jay"
+bets_sheet = bets.create_sheet(0)
+bets_sheet.title = "Blah"
+bets_sheet = bets.create_sheet(0)
+bets_sheet.title = "Blahhhh"
 
-Add a second sheet
-    Has the game
-    Has the multi and all the singles for each of these
-    Greater 60% probability
-    Find highest odds difference
-    Two highest odds difference above 90% for multi
-    Maybe make this a separate script to run that can be used to track bets
+bets.save("Bets.xlsx")
+
+

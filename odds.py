@@ -1,12 +1,9 @@
 """
 NEXT STEPS:
-Pull out the games being played that day and filter to show just them
-    What ones were entered when user was prompted
+Add a "STEPS" Thing below
 
-Add a "Cleanse" option to remove all odds and fill again
 
-Test
-
+Fix the games issue
 """
 
 import requests
@@ -21,12 +18,13 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from datetime import datetime, timedelta, date
+import warnings
 import shutil
 import os
 
 urls = []
 url = ""
-
+warnings.filterwarnings("ignore")
 
 while url != "Run Please":
     url = input("Enter the URL of the game: ")

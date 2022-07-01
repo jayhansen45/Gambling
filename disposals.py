@@ -1,12 +1,18 @@
 """ TO DO
 Maybe outlier if I can be fucked
 
-Fix for when it isn't 13 games
+Fix for when it isn't 14 games
 
 Try again with autosizing
 
 Create a "STEPS" Thing at the top of this code
 
+Fix issue about the ASCII letter thing
+    if statement that checks how much t is?
+    Should be a better way of doing this
+
+    **** THIS WILL WORK ****
+    Can save the values for each that needs to be remembered when the heading is written
 """
 
 import openpyxl as xl
@@ -184,31 +190,34 @@ for site in urls:
 
         worksheet.cell(a+2+depth, t+4).value = avg
         values_numpy = np.array(values)
-        worksheet.cell(a+2+depth, t+5).value = np.std(values_numpy)
+        if avg == 0:
+            worksheet.cell(a+2+depth, t+5).value = 0
+        else:
+            worksheet.cell(a+2+depth, t+5).value = np.std(values_numpy)
 
-        worksheet.cell(a+2+depth, t+6).value = (1-norm.cdf(14, avg, np.std(values_numpy)))*100
+        worksheet.cell(a+2+depth, t+6).value = (1-norm.cdf(14, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+7).value = 1/(worksheet.cell(a+2+depth, t+6).value/100)
-        worksheet.cell(a+2+depth, t+9).value = "=" + chr(t+7+65)+str((a+2+depth))+"-"+chr(t+6+65) + str(a+2+depth)
+        worksheet.cell(a+2+depth, t+9).value = "=" + chr(t+8+64)+str((a+2+depth))+"-"+chr(t+7+64) + str(a+2+depth)
 
         
-        worksheet.cell(a+2+depth, t+10).value = (1-norm.cdf(19, avg, np.std(values_numpy)))*100
+        worksheet.cell(a+2+depth, t+10).value = (1-norm.cdf(19, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+11).value = 1/(worksheet.cell(a+2+depth, t+10).value/100)
-        worksheet.cell(a+2+depth, t+13).value = "=" + chr(t+11+65)+str((a+2+depth))+"-"+chr(t+10+65)+str(a+2+depth)
+        worksheet.cell(a+2+depth, t+13).value = "=" + chr(t+12+64)+str((a+2+depth))+"-"+chr(t+11+64)+str(a+2+depth)
 
-        worksheet.cell(a+2+depth, t+14).value = (1-norm.cdf(24, avg, np.std(values_numpy)))*100
+        worksheet.cell(a+2+depth, t+14).value = (1-norm.cdf(24, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+15).value = 1/(worksheet.cell(a+2+depth, t+14).value/100)
-        worksheet.cell(a+2+depth, t+17).value = ("=A" + chr(t+15+65-26)+str((a+2+depth))+"-"+"A" + chr(t+14+65-26)+str(a+2+depth))
+        worksheet.cell(a+2+depth, t+17).value = ("=A" + chr(t+16+64-26)+str((a+2+depth))+"-"+"A" + chr(t+15+64-26)+str(a+2+depth))
 
-        worksheet.cell(a+2+depth, t+18).value = (1-norm.cdf(29, avg, np.std(values_numpy)))*100
+        worksheet.cell(a+2+depth, t+18).value = (1-norm.cdf(29, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+19).value = 1/(worksheet.cell(a+2+depth, t+18).value/100)
-        worksheet.cell(a+2+depth, t+21).value = ("=A" + chr(t+19+65-26)+str((a+2+depth))+"-"+"A" + chr(t+18+65-26)+str(a+2+depth))
+        worksheet.cell(a+2+depth, t+21).value = ("=A" + chr(t+20+64-26)+str((a+2+depth))+"-"+"A" + chr(t+19+64-26)+str(a+2+depth))
         
-        worksheet.cell(a+2+depth, t+22).value = (1-norm.cdf(34, avg, np.std(values_numpy)))*100
+        worksheet.cell(a+2+depth, t+22).value = (1-norm.cdf(34, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+23).value = 1/(worksheet.cell(a+2+depth, t+22).value/100)
-        worksheet.cell(a+2+depth, t+25).value = ("=A" + chr(t+23+65-26)+str((a+2+depth))+"-"+"A" + chr(t+22+65-26)+str(a+2+depth))
+        worksheet.cell(a+2+depth, t+25).value = ("=A" + chr(t+24+64-26)+str((a+2+depth))+"-"+"A" + chr(t+23+64-26)+str(a+2+depth))
 
         if avg > 0:
-            worksheet.cell(a+2+depth, t+26).value = ("=MAX(U" + str(a+2+depth) + ", Y" + str(a+2+depth) + ", AC" + str(a+2+depth) + ", AG" + str(a+2+depth) + ", AK" + str(a+2+depth) + ")")
+            worksheet.cell(a+2+depth, t+26).value = ("=MAX("+ chr(t+9+64) + str(a+2+depth) + ", " + chr(t+13+64) + str(a+2+depth) + ", A" + chr(t+17+64-26) + str(a+2+depth) + ", A" + chr(t+21+64-26) + str(a+2+depth) + ", A"+ chr(t+25+64-26) + str(a+2+depth) + ")")        
         else:
             worksheet.cell(a+2+depth, t+26).value = 0
 
