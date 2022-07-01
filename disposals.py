@@ -5,6 +5,8 @@ Fix for when it isn't 13 games
 
 Try again with autosizing
 
+Create a "STEPS" Thing at the top of this code
+
 """
 
 import openpyxl as xl
@@ -20,7 +22,7 @@ from bs4 import BeautifulSoup
 warnings.filterwarnings("ignore")
 urls = ['https://afltables.com/afl/stats/teams/adelaide/2022_gbg.html', 'https://afltables.com/afl/stats/teams/brisbanel/2022_gbg.html', 'https://afltables.com/afl/stats/teams/carlton/2022_gbg.html', 'https://afltables.com/afl/stats/teams/collingwood/2022_gbg.html', 'https://afltables.com/afl/stats/teams/essendon/2022_gbg.html', 'https://afltables.com/afl/stats/teams/fremantle/2022_gbg.html', 'https://afltables.com/afl/stats/teams/geelong/2022_gbg.html', 'https://afltables.com/afl/stats/teams/goldcoast/2022_gbg.html', 'https://afltables.com/afl/stats/teams/gws/2022_gbg.html', 'https://afltables.com/afl/stats/teams/hawthorn/2022_gbg.html', 'https://afltables.com/afl/stats/teams/melbourne/2022_gbg.html', 'https://afltables.com/afl/stats/teams/kangaroos/2022_gbg.html', 'https://afltables.com/afl/stats/teams/padelaide/2022_gbg.html', 'https://afltables.com/afl/stats/teams/richmond/2022_gbg.html', 'https://afltables.com/afl/stats/teams/stkilda/2022_gbg.html', 'https://afltables.com/afl/stats/teams/bullldogs/2022_gbg.html', 'https://afltables.com/afl/stats/teams/westcoast/2022_gbg.html', 'https://afltables.com/afl/stats/teams/swans/2022_gbg.html']
 depth = 0
-games = 13
+games = 14
 
 workbook = xl.Workbook()
 worksheet = workbook.worksheets[0]
@@ -175,7 +177,7 @@ for site in urls:
                 sum = sum + int(disp[a][t])
                 count = count + 1
                 values.append(int(disp[a][t]))
-        if count > 6:
+        if count > 8:
             avg = sum/count
         else:
             avg = 0
@@ -186,24 +188,24 @@ for site in urls:
 
         worksheet.cell(a+2+depth, t+6).value = (1-norm.cdf(14, avg, np.std(values_numpy)))*100
         worksheet.cell(a+2+depth, t+7).value = 1/(worksheet.cell(a+2+depth, t+6).value/100)
-        worksheet.cell(a+2+depth, t+9).value = "=T"+str((a+2+depth))+"-"+"S"+str(a+2+depth)
+        worksheet.cell(a+2+depth, t+9).value = "=" + chr(t+7+65)+str((a+2+depth))+"-"+chr(t+6+65) + str(a+2+depth)
 
         
         worksheet.cell(a+2+depth, t+10).value = (1-norm.cdf(19, avg, np.std(values_numpy)))*100
         worksheet.cell(a+2+depth, t+11).value = 1/(worksheet.cell(a+2+depth, t+10).value/100)
-        worksheet.cell(a+2+depth, t+13).value = "=X"+str((a+2+depth))+"-"+"W"+str(a+2+depth)
+        worksheet.cell(a+2+depth, t+13).value = "=" + chr(t+11+65)+str((a+2+depth))+"-"+chr(t+10+65)+str(a+2+depth)
 
         worksheet.cell(a+2+depth, t+14).value = (1-norm.cdf(24, avg, np.std(values_numpy)))*100
         worksheet.cell(a+2+depth, t+15).value = 1/(worksheet.cell(a+2+depth, t+14).value/100)
-        worksheet.cell(a+2+depth, t+17).value = "=AB"+str((a+2+depth))+"-"+"AA"+str(a+2+depth)
+        worksheet.cell(a+2+depth, t+17).value = ("=A" + chr(t+15+65-26)+str((a+2+depth))+"-"+"A" + chr(t+14+65-26)+str(a+2+depth))
 
         worksheet.cell(a+2+depth, t+18).value = (1-norm.cdf(29, avg, np.std(values_numpy)))*100
         worksheet.cell(a+2+depth, t+19).value = 1/(worksheet.cell(a+2+depth, t+18).value/100)
-        worksheet.cell(a+2+depth, t+21).value = "=AF"+str((a+2+depth))+"-"+"AE"+str(a+2+depth)
+        worksheet.cell(a+2+depth, t+21).value = ("=A" + chr(t+19+65-26)+str((a+2+depth))+"-"+"A" + chr(t+18+65-26)+str(a+2+depth))
         
         worksheet.cell(a+2+depth, t+22).value = (1-norm.cdf(34, avg, np.std(values_numpy)))*100
         worksheet.cell(a+2+depth, t+23).value = 1/(worksheet.cell(a+2+depth, t+22).value/100)
-        worksheet.cell(a+2+depth, t+25).value = "=AJ"+str((a+2+depth))+"-"+"AI"+str(a+2+depth)
+        worksheet.cell(a+2+depth, t+25).value = ("=A" + chr(t+23+65-26)+str((a+2+depth))+"-"+"A" + chr(t+22+65-26)+str(a+2+depth))
 
         if avg > 0:
             worksheet.cell(a+2+depth, t+26).value = ("=MAX(U" + str(a+2+depth) + ", Y" + str(a+2+depth) + ", AC" + str(a+2+depth) + ", AG" + str(a+2+depth) + ", AK" + str(a+2+depth) + ")")

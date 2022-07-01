@@ -50,9 +50,12 @@ for j in range(0, len(urls)):
 
     #Chomedriver options for some reason
     chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = "C:\\Users\\jhansen3\\AppData\\Local\\Google\\Chrome Beta\\Application\\chrome.exe"
+    chrome_options.headless = True
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("--incognito")
+
     os.chmod('C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\chromedriver_win32\\chromedriver.exe', 0o755)
 
 
@@ -60,8 +63,8 @@ for j in range(0, len(urls)):
     filename ="C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Disposals Tracking.xlsx"
     #filename = "C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Disposals Tracking.xlsx"
 
-    driver = webdriver.Chrome(executable_path=r"C:\Users\jhansen3\OneDrive - KPMG\Documents\Python\Gambling\chromedriver_win32\chromedriver.exe")
-    #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    #driver = webdriver.Chrome(executable_path=r"C:\Users\jhansen3\OneDrive - KPMG\Documents\Python\Gambling\chromedriver_win32\chromedriver.exe")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager(version='104.0.5112.20').install()), options=chrome_options)
 
 
     #Driver to get the info from that specific URL
@@ -188,7 +191,7 @@ for j in range(0, len(urls)):
 
     i = 1
 
-    games = 13
+    games = 14
     
     #Finds the bottom cell
     for m in range(1, 1048576):
