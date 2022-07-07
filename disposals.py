@@ -28,7 +28,7 @@ from bs4 import BeautifulSoup
 warnings.filterwarnings("ignore")
 urls = ['https://afltables.com/afl/stats/teams/adelaide/2022_gbg.html', 'https://afltables.com/afl/stats/teams/brisbanel/2022_gbg.html', 'https://afltables.com/afl/stats/teams/carlton/2022_gbg.html', 'https://afltables.com/afl/stats/teams/collingwood/2022_gbg.html', 'https://afltables.com/afl/stats/teams/essendon/2022_gbg.html', 'https://afltables.com/afl/stats/teams/fremantle/2022_gbg.html', 'https://afltables.com/afl/stats/teams/geelong/2022_gbg.html', 'https://afltables.com/afl/stats/teams/goldcoast/2022_gbg.html', 'https://afltables.com/afl/stats/teams/gws/2022_gbg.html', 'https://afltables.com/afl/stats/teams/hawthorn/2022_gbg.html', 'https://afltables.com/afl/stats/teams/melbourne/2022_gbg.html', 'https://afltables.com/afl/stats/teams/kangaroos/2022_gbg.html', 'https://afltables.com/afl/stats/teams/padelaide/2022_gbg.html', 'https://afltables.com/afl/stats/teams/richmond/2022_gbg.html', 'https://afltables.com/afl/stats/teams/stkilda/2022_gbg.html', 'https://afltables.com/afl/stats/teams/bullldogs/2022_gbg.html', 'https://afltables.com/afl/stats/teams/westcoast/2022_gbg.html', 'https://afltables.com/afl/stats/teams/swans/2022_gbg.html']
 depth = 0
-games = 14
+games = 15
 
 workbook = xl.Workbook()
 worksheet = workbook.worksheets[0]
@@ -90,7 +90,7 @@ for site in urls:
     #Finds the correct attributes
     table = soup.find_all(attrs={'class':'sortable'})
     team = soup.find('h2').text
-    team = team.split('-')
+    team = team.split(' -')
 
 
     #Pulls out the disposals and the time on ground
@@ -217,7 +217,7 @@ for site in urls:
         worksheet.cell(a+2+depth, t+25).value = ("=A" + chr(t+24+64-26)+str((a+2+depth))+"-"+"A" + chr(t+23+64-26)+str(a+2+depth))
 
         if avg > 0:
-            worksheet.cell(a+2+depth, t+26).value = ("=MAX("+ chr(t+9+64) + str(a+2+depth) + ", " + chr(t+13+64) + str(a+2+depth) + ", A" + chr(t+17+64-26) + str(a+2+depth) + ", A" + chr(t+21+64-26) + str(a+2+depth) + ", A"+ chr(t+25+64-26) + str(a+2+depth) + ")")        
+            worksheet.cell(a+2+depth, t+26).value = ("=MAX("+ chr(t+9+64) + str(a+2+depth) + ", A" + chr(t+13+64-26) + str(a+2+depth) + ", A" + chr(t+17+64-26) + str(a+2+depth) + ", A" + chr(t+21+64-26) + str(a+2+depth) + ", A"+ chr(t+25+64-26) + str(a+2+depth) + ")")        
         else:
             worksheet.cell(a+2+depth, t+26).value = 0
 
