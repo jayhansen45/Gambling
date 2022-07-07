@@ -4,18 +4,11 @@ Add a "STEPS" Thing below
 
 Fix the games issue
 
-
 Make the bets file part be a loop for each game
 
-Pull out the type of bet
-    Might have to be an if statement for each difference[j] values
-
-Add the odds to the numpy instead of the difference
-    Both?
-
-Make it stay in the same tab if it is the same round
-
 Formatting
+    Table around the bets
+    Colour the title of each game
 
 Make the multi one too
     See if this can be done without copying and pasting 90% of the code
@@ -253,16 +246,26 @@ for j in range(0, len(urls)):
 
 bets_filename = "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Bets.xlsx"
 bets = xl.load_workbook(bets_filename)
+sheets = bets.sheetnames
 
-bets_sheet = bets.create_sheet("Round " + str(games+1), 0)
+y=0
 
-bets_sheet.cell(2, 2).value = home_array[0] + " Vs " + away_array[0]
+if sheets[0] != ("Round " + str(games+1)):
+    bets_sheet = bets.create_sheet("Round " + str(games+1), 0)
+else:
+    bets_sheet = bets.worksheets[0]
+    y=1048576
+    while bets_sheet.cell(y, 2).value == None:
+        y=y-1
+    y=y+2
 
-bets_sheet.cell(3, 2).value = "Player"
-bets_sheet.cell(3, 3).value = "Disposals"
-bets_sheet.cell(3, 4).value = "Odds"
-bets_sheet.cell(3, 5).value = "Difference"
-bets_sheet.cell(3, 6).value = "Win?"
+bets_sheet.cell(2+y, 2).value = home_array[0] + " Vs " + away_array[0]
+
+bets_sheet.cell(3+y, 2).value = "Player"
+bets_sheet.cell(3+y, 3).value = "Disposals"
+bets_sheet.cell(3+y, 4).value = "Odds"
+bets_sheet.cell(3+y, 5).value = "Difference"
+bets_sheet.cell(3+y, 6).value = "Win?"
 
 
 bets_sheet.column_dimensions['B'].width = 15
@@ -364,10 +367,10 @@ for i in range(2, m):
 
 
 for k in range(0, 5):
-    bets_sheet.cell(k+4, 2).value = numpy_singles[k][0]
-    bets_sheet.cell(k+4, 3).value = numpy_singles[k][1]
-    bets_sheet.cell(k+4, 4).value = numpy_singles[k][2]
-    bets_sheet.cell(k+4, 5).value = numpy_singles[k][3]    
+    bets_sheet.cell(k+4+y, 2).value = numpy_singles[k][0]
+    bets_sheet.cell(k+4+y, 3).value = numpy_singles[k][1]
+    bets_sheet.cell(k+4+y, 4).value = numpy_singles[k][2]
+    bets_sheet.cell(k+4+y, 5).value = numpy_singles[k][3]    
 
 
 bets.save("Bets.xlsx")
