@@ -7,10 +7,6 @@ Fix the games issue
 Make the bets file part be a loop for each game
     Second loop that loops through the home_array
 
-Formatting
-    Lines around the bets
-    Colour the title of each game
-    Merge columns
 
 """
 
@@ -26,6 +22,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from datetime import datetime, timedelta, date
+from openpyxl.styles import Font, PatternFill, Alignment
 import numpy as np
 import warnings
 import shutil
@@ -242,222 +239,235 @@ for j in range(0, len(urls)):
                 sheet.cell(a, games+23).value = float(odds_35[i])
     j = j+1
 
+    workbook.save("Disposals Tracking.xlsx")
+
 
 
 bets_filename = "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Bets.xlsx"
 bets = xl.load_workbook(bets_filename)
 sheets = bets.sheetnames
 
-y=0
+for p in range(0, len(home_array)):
 
-if sheets[0] != ("Round " + str(games+1)):
-    bets_sheet = bets.create_sheet("Round " + str(games+1), 0)
-else:
-    bets_sheet = bets.worksheets[0]
-    y=1048576
-    while bets_sheet.cell(y, 2).value == None:
-        y=y-1
-    y=y+2
+    y=0
 
-
-bets_sheet.column_dimensions['B'].width = 15
-bets_sheet.column_dimensions['C'].width = 15
-bets_sheet.column_dimensions['D'].width = 15
-bets_sheet.column_dimensions['E'].width = 20
-bets_sheet.column_dimensions['F'].width = 15
+    if sheets[0] != ("Round " + str(games+1)):
+        bets_sheet = bets.create_sheet("Round " + str(games+1), 0)
+    else:
+        bets_sheet = bets.worksheets[0]
+        y=1048576
+        while bets_sheet.cell(y, 2).value == None:
+            y=y-1
+        y=y+2
 
 
-
-
-bets_sheet.cell(2+y, 2).value = home_array[0] + " Vs " + away_array[0]
-
-bets_sheet.cell(3+y, 2).value = "Player"
-bets_sheet.cell(3+y, 3).value = "Disposals"
-bets_sheet.cell(3+y, 4).value = "Odds"
-bets_sheet.cell(3+y, 5).value = "Difference"
-bets_sheet.cell(3+y, 6).value = "Win?"
-
-
-
-singles = [["Player", "Bet", 0.0, 0.0], ["Player2", "Bet", 0.0, 0.0], ["Player3", "Bet",  0.0, 0.0], ["Player4", "Bet", 0.0, 0.0], ["Player5", "Bet", 0.0, 0.0]]
-numpy_singles = np.array(singles)
-odds_singles = [0, 0, 0, 0, 0]
-player_singles = [0, 0, 0, 0, 0]
-bets_15 = 0
-odds_15 = 0
-bets_20 = 0
-bets_25 = 0
-bets_30 = 0
-bets_35 = 0
-odds_20 = 0
-odds_25 = 0
-odds_30 = 0
-odds_35 = 0
-
-
-for i in range(2, m):
-    if (sheet.cell(i, 1).value == home_array[0] or sheet.cell(i, 1).value == away_array[0]):
-        if sheet.cell(i, games-1+8).value is None or sheet.cell(i, games-1+7).value is None or sheet.cell(i, games-1+6).value <60:
-            fifteen = 0
-            bets_15 = 0
-            odds_15 = 0
-        else:
-            fifteen = sheet.cell(i, games-1+8).value - sheet.cell(i, games-1+7).value
-            temp = sheet.cell(1, games-1+8).value.split(" -")
-            bets_15 = temp[0]
-            odds_15 = sheet.cell(i, games-1+8).value
-
-
-        if sheet.cell(i, games-1+12).value is None or sheet.cell(i, games-1+11).value is None or sheet.cell(i, games-1+10).value <60:
-            twenty = 0
-            bets_20 = 0
-            odds_20 = 0
-        else:
-            twenty = sheet.cell(i, games-1+12).value - sheet.cell(i, games-1+11).value
-            temp = sheet.cell(1, games-1+12).value.split(" -")
-            bets_20 = temp[0]
-            odds_20 = sheet.cell(i, games-1+12).value
-
-        if sheet.cell(i, games-1+16).value is None or sheet.cell(i, games-1+15).value is None or sheet.cell(i, games-1+14).value <60:
-            twenty_five = 0
-            bets_25 = 0
-            odds_25 = 0
-        else:
-            twenty_five = sheet.cell(i, games-1+16).value - sheet.cell(i, games-1+15).value
-            temp = sheet.cell(1, games-1+16).value.split(" -")
-            bets_25 = temp[0]
-            odds_25 = sheet.cell(i, games-1+16).value
-
-        if sheet.cell(i, games-1+20).value is None or sheet.cell(i, games-1+19).value is None or sheet.cell(i, games-1+18).value <60:
-            thirty = 0
-            bets_30 = 0
-            odds_30 = 0
-        else:
-            thirty = sheet.cell(i, games-1+20).value - sheet.cell(i, games-1+19).value
-            temp = sheet.cell(1, games-1+20).value.split(" -")
-            bets_30 = temp[0]
-            odds_30 = sheet.cell(i, games-1+20).value
-
-        if sheet.cell(i, games-1+24).value is None or sheet.cell(i, games-1+23).value is None or sheet.cell(i, games-1+22).value <60:
-            thirty_five = 0
-            bets_35 = 0
-            odds_35 = 0
-        else:
-            thirty_five = sheet.cell(i, games-1+24).value - sheet.cell(i, games-1+23).value
-            temp = sheet.cell(1, games-1+24).value.split(" -")
-            bets_35 = temp[0]
-            odds_35 = sheet.cell(i, games-1+24).value
-
-
-
-        
-        differences = [fifteen, twenty, twenty_five, thirty, thirty_five]
-        bet = [bets_15, bets_20, bets_25, bets_30, bets_35]
-        odds = [odds_15, odds_20, odds_25, odds_30, odds_35]
-        
-        for j in range(0, len(differences)):
-            differences[j] = float(differences[j])
-            temp = float(numpy_singles[4][3])
-            if differences[j] > temp:
-                numpy_singles = np.delete(numpy_singles, 4, 0)
-                numpy_singles = np.vstack([numpy_singles, [sheet.cell(i, 2).value , bet[j], odds[j], differences[j]]])
-                numpy_singles = numpy_singles[numpy_singles[:, 3].argsort()][::-1]
+    bets_sheet.column_dimensions['B'].width = 15
+    bets_sheet.column_dimensions['C'].width = 15
+    bets_sheet.column_dimensions['D'].width = 15
+    bets_sheet.column_dimensions['E'].width = 20
+    bets_sheet.column_dimensions['F'].width = 15
 
 
 
 
-for k in range(0, 5):
-    bets_sheet.cell(k+4+y, 2).value = numpy_singles[k][0]
-    bets_sheet.cell(k+4+y, 3).value = numpy_singles[k][1]
-    bets_sheet.cell(k+4+y, 4).value = numpy_singles[k][2]
-    bets_sheet.cell(k+4+y, 5).value = numpy_singles[k][3]    
+    bets_sheet.cell(2+y, 2).value = home_array[p] + " Vs " + away_array[p]
+    bets_sheet.cell(2+y, 2).font = Font(bold = True)
+    bets_sheet.cell(2+y, 2).fill = PatternFill("solid", fgColor = "BDD7EE")
+    bets_sheet.merge_cells('B' + str(2+y) + ':F' + str(2+y))
+    bets_sheet.cell(2+y, 2).alignment = Alignment(horizontal = "center")
 
-
-#Do the multi part of it all now
-bets_sheet.cell(k+5+y, 2).value = "Multi"
-
-multi = [["Player", "Bet", 0.0, 0.0], ["Player2", "Bet", 0.0, 0.0], ["Player3", "Bet",  0.0, 0.0], ["Player4", "Bet", 0.0, 0.0], ["Player5", "Bet", 0.0, 0.0]]
-numpy_multi = np.array(multi)
-odds_multi = [0, 0, 0, 0, 0]
-player_multi = [0, 0, 0, 0, 0]
-
-
-for i in range(2, m):
-    if (sheet.cell(i, 1).value == home_array[0] or sheet.cell(i, 1).value == away_array[0]):
-        if sheet.cell(i, games-1+8).value is None or sheet.cell(i, games-1+7).value is None or sheet.cell(i, games-1+6).value <90:
-            fifteen = 0
-            bets_15 = 0
-            odds_15 = 0
-        else:
-            fifteen = sheet.cell(i, games-1+8).value - sheet.cell(i, games-1+7).value
-            temp = sheet.cell(1, games-1+8).value.split(" -")
-            bets_15 = temp[0]
-            odds_15 = sheet.cell(i, games-1+8).value
-
-
-        if sheet.cell(i, games-1+12).value is None or sheet.cell(i, games-1+11).value is None or sheet.cell(i, games-1+10).value <90:
-            twenty = 0
-            bets_20 = 0
-            odds_20 = 0
-        else:
-            twenty = sheet.cell(i, games-1+12).value - sheet.cell(i, games-1+11).value
-            temp = sheet.cell(1, games-1+12).value.split(" -")
-            bets_20 = temp[0]
-            odds_20 = sheet.cell(i, games-1+12).value
-
-        if sheet.cell(i, games-1+16).value is None or sheet.cell(i, games-1+15).value is None or sheet.cell(i, games-1+14).value <90:
-            twenty_five = 0
-            bets_25 = 0
-            odds_25 = 0
-        else:
-            twenty_five = sheet.cell(i, games-1+16).value - sheet.cell(i, games-1+15).value
-            temp = sheet.cell(1, games-1+16).value.split(" -")
-            bets_25 = temp[0]
-            odds_25 = sheet.cell(i, games-1+16).value
-
-        if sheet.cell(i, games-1+20).value is None or sheet.cell(i, games-1+19).value is None or sheet.cell(i, games-1+18).value <90:
-            thirty = 0
-            bets_30 = 0
-            odds_30 = 0
-        else:
-            thirty = sheet.cell(i, games-1+20).value - sheet.cell(i, games-1+19).value
-            temp = sheet.cell(1, games-1+20).value.split(" -")
-            bets_30 = temp[0]
-            odds_30 = sheet.cell(i, games-1+20).value
-
-        if sheet.cell(i, games-1+24).value is None or sheet.cell(i, games-1+23).value is None or sheet.cell(i, games-1+22).value <90:
-            thirty_five = 0
-            bets_35 = 0
-            odds_35 = 0
-        else:
-            thirty_five = sheet.cell(i, games-1+24).value - sheet.cell(i, games-1+23).value
-            temp = sheet.cell(1, games-1+24).value.split(" -")
-            bets_35 = temp[0]
-            odds_35 = sheet.cell(i, games-1+24).value
+    bets_sheet.cell(3+y, 2).value = "Player"
+    bets_sheet.cell(3+y, 3).value = "Disposals"
+    bets_sheet.cell(3+y, 4).value = "Odds"
+    bets_sheet.cell(3+y, 5).value = "Difference"
+    bets_sheet.cell(3+y, 6).value = "Win?"
 
 
 
-        
-        differences = [fifteen, twenty, twenty_five, thirty, thirty_five]
-        bet = [bets_15, bets_20, bets_25, bets_30, bets_35]
-        odds = [odds_15, odds_20, odds_25, odds_30, odds_35]
-        
-        for j in range(0, len(differences)):
-            differences[j] = float(differences[j])
-            temp = float(numpy_multi[4][3])
-            if differences[j] > temp:
-                numpy_multi = np.delete(numpy_multi, 4, 0)
-                numpy_multi = np.vstack([numpy_multi, [sheet.cell(i, 2).value , bet[j], odds[j], differences[j]]])
-                numpy_multi = numpy_multi[numpy_multi[:, 3].argsort()][::-1]
+    singles = [["Player", "Bet", 0.0, 0.0], ["Player2", "Bet", 0.0, 0.0], ["Player3", "Bet",  0.0, 0.0], ["Player4", "Bet", 0.0, 0.0], ["Player5", "Bet", 0.0, 0.0]]
+    numpy_singles = np.array(singles)
+    odds_singles = [0, 0, 0, 0, 0]
+    player_singles = [0, 0, 0, 0, 0]
+    bets_15 = 0
+    odds_15 = 0
+    bets_20 = 0
+    bets_25 = 0
+    bets_30 = 0
+    bets_35 = 0
+    odds_20 = 0
+    odds_25 = 0
+    odds_30 = 0
+    odds_35 = 0
+
+
+    for i in range(2, m):
+        if (sheet.cell(i, 1).value == home_array[p] or sheet.cell(i, 1).value == away_array[p]):
+            if sheet.cell(i, games-1+8).value is None or sheet.cell(i, games-1+7).value is None or sheet.cell(i, games-1+6).value <60:
+                fifteen = 0
+                bets_15 = 0
+                odds_15 = 0
+            else:
+                fifteen = sheet.cell(i, games-1+8).value - sheet.cell(i, games-1+7).value
+                temp = sheet.cell(1, games-1+8).value.split(" -")
+                bets_15 = temp[0]
+                odds_15 = sheet.cell(i, games-1+8).value
+
+
+            if sheet.cell(i, games-1+12).value is None or sheet.cell(i, games-1+11).value is None or sheet.cell(i, games-1+10).value <60:
+                twenty = 0
+                bets_20 = 0
+                odds_20 = 0
+            else:
+                twenty = sheet.cell(i, games-1+12).value - sheet.cell(i, games-1+11).value
+                temp = sheet.cell(1, games-1+12).value.split(" -")
+                bets_20 = temp[0]
+                odds_20 = sheet.cell(i, games-1+12).value
+
+            if sheet.cell(i, games-1+16).value is None or sheet.cell(i, games-1+15).value is None or sheet.cell(i, games-1+14).value <60:
+                twenty_five = 0
+                bets_25 = 0
+                odds_25 = 0
+            else:
+                twenty_five = sheet.cell(i, games-1+16).value - sheet.cell(i, games-1+15).value
+                temp = sheet.cell(1, games-1+16).value.split(" -")
+                bets_25 = temp[0]
+                odds_25 = sheet.cell(i, games-1+16).value
+
+            if sheet.cell(i, games-1+20).value is None or sheet.cell(i, games-1+19).value is None or sheet.cell(i, games-1+18).value <60:
+                thirty = 0
+                bets_30 = 0
+                odds_30 = 0
+            else:
+                thirty = sheet.cell(i, games-1+20).value - sheet.cell(i, games-1+19).value
+                temp = sheet.cell(1, games-1+20).value.split(" -")
+                bets_30 = temp[0]
+                odds_30 = sheet.cell(i, games-1+20).value
+
+            if sheet.cell(i, games-1+24).value is None or sheet.cell(i, games-1+23).value is None or sheet.cell(i, games-1+22).value <60:
+                thirty_five = 0
+                bets_35 = 0
+                odds_35 = 0
+            else:
+                thirty_five = sheet.cell(i, games-1+24).value - sheet.cell(i, games-1+23).value
+                temp = sheet.cell(1, games-1+24).value.split(" -")
+                bets_35 = temp[0]
+                odds_35 = sheet.cell(i, games-1+24).value
+
+
+
+            
+            differences = [fifteen, twenty, twenty_five, thirty, thirty_five]
+            bet = [bets_15, bets_20, bets_25, bets_30, bets_35]
+            odds = [odds_15, odds_20, odds_25, odds_30, odds_35]
+            
+            for j in range(0, len(differences)):
+                differences[j] = float(differences[j])
+                temp = float(numpy_singles[4][3])
+                if differences[j] > temp:
+                    numpy_singles = np.delete(numpy_singles, 4, 0)
+                    numpy_singles = np.vstack([numpy_singles, [sheet.cell(i, 2).value , bet[j], odds[j], differences[j]]])
+                    numpy_singles = numpy_singles[numpy_singles[:, 3].argsort()][::-1]
 
 
 
 
-for k in range(0, 5):
-    bets_sheet.cell(k+4+y+6, 2).value = numpy_multi[k][0]
-    bets_sheet.cell(k+4+y+6, 3).value = numpy_multi[k][1]
-    bets_sheet.cell(k+4+y+6, 4).value = numpy_multi[k][2]
-    bets_sheet.cell(k+4+y+6, 5).value = numpy_multi[k][3]    
+    for k in range(0, 5):
+        bets_sheet.cell(k+4+y, 2).value = numpy_singles[k][0]
+        bets_sheet.cell(k+4+y, 3).value = numpy_singles[k][1]
+        bets_sheet.cell(k+4+y, 4).value = numpy_singles[k][2]
+        bets_sheet.cell(k+4+y, 5).value = numpy_singles[k][3]    
+
+
+    #Do the multi part of it all now
+    bets_sheet.cell(k+5+y, 2).value = "Multi"
+    bets_sheet.cell(k+5+y, 2).font = Font(bold= True)
+    bets_sheet.cell(k+5+y, 2).fill = PatternFill("solid", fgColor = "BDD7EE")
+    bets_sheet.merge_cells('B' + str(k+5+y) + ':F' + str(k+5+y))
+    bets_sheet.cell(k+5+y, 2).alignment = Alignment(horizontal = "center")
+
+
+    multi = [["Player", "Bet", 0.0, 0.0], ["Player2", "Bet", 0.0, 0.0], ["Player3", "Bet",  0.0, 0.0], ["Player4", "Bet", 0.0, 0.0], ["Player5", "Bet", 0.0, 0.0]]
+    numpy_multi = np.array(multi)
+    odds_multi = [0, 0, 0, 0, 0]
+    player_multi = [0, 0, 0, 0, 0]
+
+
+    for i in range(2, m):
+        if (sheet.cell(i, 1).value == home_array[p] or sheet.cell(i, 1).value == away_array[p]):
+            if sheet.cell(i, games-1+8).value is None or sheet.cell(i, games-1+7).value is None or sheet.cell(i, games-1+6).value <90:
+                fifteen = 0
+                bets_15 = 0
+                odds_15 = 0
+            else:
+                fifteen = sheet.cell(i, games-1+8).value - sheet.cell(i, games-1+7).value
+                temp = sheet.cell(1, games-1+8).value.split(" -")
+                bets_15 = temp[0]
+                odds_15 = sheet.cell(i, games-1+8).value
+
+
+            if sheet.cell(i, games-1+12).value is None or sheet.cell(i, games-1+11).value is None or sheet.cell(i, games-1+10).value <90:
+                twenty = 0
+                bets_20 = 0
+                odds_20 = 0
+            else:
+                twenty = sheet.cell(i, games-1+12).value - sheet.cell(i, games-1+11).value
+                temp = sheet.cell(1, games-1+12).value.split(" -")
+                bets_20 = temp[0]
+                odds_20 = sheet.cell(i, games-1+12).value
+
+            if sheet.cell(i, games-1+16).value is None or sheet.cell(i, games-1+15).value is None or sheet.cell(i, games-1+14).value <90:
+                twenty_five = 0
+                bets_25 = 0
+                odds_25 = 0
+            else:
+                twenty_five = sheet.cell(i, games-1+16).value - sheet.cell(i, games-1+15).value
+                temp = sheet.cell(1, games-1+16).value.split(" -")
+                bets_25 = temp[0]
+                odds_25 = sheet.cell(i, games-1+16).value
+
+            if sheet.cell(i, games-1+20).value is None or sheet.cell(i, games-1+19).value is None or sheet.cell(i, games-1+18).value <90:
+                thirty = 0
+                bets_30 = 0
+                odds_30 = 0
+            else:
+                thirty = sheet.cell(i, games-1+20).value - sheet.cell(i, games-1+19).value
+                temp = sheet.cell(1, games-1+20).value.split(" -")
+                bets_30 = temp[0]
+                odds_30 = sheet.cell(i, games-1+20).value
+
+            if sheet.cell(i, games-1+24).value is None or sheet.cell(i, games-1+23).value is None or sheet.cell(i, games-1+22).value <90:
+                thirty_five = 0
+                bets_35 = 0
+                odds_35 = 0
+            else:
+                thirty_five = sheet.cell(i, games-1+24).value - sheet.cell(i, games-1+23).value
+                temp = sheet.cell(1, games-1+24).value.split(" -")
+                bets_35 = temp[0]
+                odds_35 = sheet.cell(i, games-1+24).value
+
+
+
+            
+            differences = [fifteen, twenty, twenty_five, thirty, thirty_five]
+            bet = [bets_15, bets_20, bets_25, bets_30, bets_35]
+            odds = [odds_15, odds_20, odds_25, odds_30, odds_35]
+            
+            for j in range(0, len(differences)):
+                differences[j] = float(differences[j])
+                temp = float(numpy_multi[4][3])
+                if differences[j] > temp:
+                    numpy_multi = np.delete(numpy_multi, 4, 0)
+                    numpy_multi = np.vstack([numpy_multi, [sheet.cell(i, 2).value , bet[j], odds[j], differences[j]]])
+                    numpy_multi = numpy_multi[numpy_multi[:, 3].argsort()][::-1]
+
+
+
+
+    for k in range(0, 5):
+        bets_sheet.cell(k+4+y+6, 2).value = numpy_multi[k][0]
+        bets_sheet.cell(k+4+y+6, 3).value = numpy_multi[k][1]
+        bets_sheet.cell(k+4+y+6, 4).value = numpy_multi[k][2]
+        bets_sheet.cell(k+4+y+6, 5).value = numpy_multi[k][3]    
 
 
 

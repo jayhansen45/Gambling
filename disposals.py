@@ -13,6 +13,7 @@ Fix issue about the ASCII letter thing
 
     **** THIS WILL WORK ****
     Can save the values for each that needs to be remembered when the heading is written
+    Use the get_column_letter thing
 """
 
 import openpyxl as xl
@@ -23,6 +24,7 @@ import numpy as np
 import warnings
 from scipy.stats import norm
 from bs4 import BeautifulSoup
+from openpyxl.utils import get_column_letter
 
 #Ignore warnings and creates the required variables
 warnings.filterwarnings("ignore")
