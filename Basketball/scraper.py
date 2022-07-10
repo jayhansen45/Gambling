@@ -1,3 +1,13 @@
+""" TO DO
+
+Comments
+
+Fix up what the numbers are for each stat
+
+Create new file that pulls out the odds
+"""
+
+
 import openpyxl as xl
 import requests
 import re
