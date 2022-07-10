@@ -2,6 +2,8 @@
 Maybe outlier if I can be fucked
 
 Fix for when it isn't 14 games
+    Move the create headings thing inside the for loop and then everything can be referenced after this instead of using "games"
+    Pull out the round number from somewhere?
 
 Try again with autosizing
 
@@ -14,6 +16,9 @@ Fix issue about the ASCII letter thing
     **** THIS WILL WORK ****
     Can save the values for each that needs to be remembered when the heading is written
     Use the get_column_letter thing
+
+Fix Brisbane Lions issues
+    Chuck in an if statement
 """
 
 import openpyxl as xl

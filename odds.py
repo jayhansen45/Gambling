@@ -3,9 +3,7 @@ NEXT STEPS:
 Add a "STEPS" Thing below
 
 Fix the games issue
-
-Make the bets file part be a loop for each game
-    Second loop that loops through the home_array
+    Scoot across the top row starting at 2 and when != avg it is the number of games
 
 
 """
