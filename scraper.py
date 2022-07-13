@@ -23,10 +23,12 @@ import os
 
 #Bunch of options and shit for the webdriver
 chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = "C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe"
 chrome_options.add_argument('--no-sandbox')
+chrome_options.headless = True
 chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument("--incognito")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+driver = webdriver.Chrome(service=Service(ChromeDriverManager(version='104.0.5112.20').install()), options = chrome_options)
 
 filedate=datetime.today()
 filedate = (filedate.strftime('%Y-%m-%d'))
