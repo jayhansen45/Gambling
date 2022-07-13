@@ -1,24 +1,8 @@
 """ TO DO
 Maybe outlier if I can be fucked
 
-Fix for when it isn't 14 games
-    Move the create headings thing inside the for loop and then everything can be referenced after this instead of using "games"
-    Pull out the round number from somewhere?
-
 Try again with autosizing
 
-Create a "STEPS" Thing at the top of this code
-
-Fix issue about the ASCII letter thing
-    if statement that checks how much t is?
-    Should be a better way of doing this
-
-    **** THIS WILL WORK ****
-    Can save the values for each that needs to be remembered when the heading is written
-    Use the get_column_letter thing
-
-Fix Brisbane Lions issues
-    Chuck in an if statement
 """
 
 import openpyxl as xl
@@ -35,10 +19,24 @@ from openpyxl.utils import get_column_letter
 warnings.filterwarnings("ignore")
 urls = ['https://afltables.com/afl/stats/teams/adelaide/2022_gbg.html', 'https://afltables.com/afl/stats/teams/brisbanel/2022_gbg.html', 'https://afltables.com/afl/stats/teams/carlton/2022_gbg.html', 'https://afltables.com/afl/stats/teams/collingwood/2022_gbg.html', 'https://afltables.com/afl/stats/teams/essendon/2022_gbg.html', 'https://afltables.com/afl/stats/teams/fremantle/2022_gbg.html', 'https://afltables.com/afl/stats/teams/geelong/2022_gbg.html', 'https://afltables.com/afl/stats/teams/goldcoast/2022_gbg.html', 'https://afltables.com/afl/stats/teams/gws/2022_gbg.html', 'https://afltables.com/afl/stats/teams/hawthorn/2022_gbg.html', 'https://afltables.com/afl/stats/teams/melbourne/2022_gbg.html', 'https://afltables.com/afl/stats/teams/kangaroos/2022_gbg.html', 'https://afltables.com/afl/stats/teams/padelaide/2022_gbg.html', 'https://afltables.com/afl/stats/teams/richmond/2022_gbg.html', 'https://afltables.com/afl/stats/teams/stkilda/2022_gbg.html', 'https://afltables.com/afl/stats/teams/bullldogs/2022_gbg.html', 'https://afltables.com/afl/stats/teams/westcoast/2022_gbg.html', 'https://afltables.com/afl/stats/teams/swans/2022_gbg.html']
 depth = 0
-games = 15
 
 workbook = xl.Workbook()
 worksheet = workbook.worksheets[0]
+
+rounds = []
+games_array = ['https://afltables.com/afl/teams/adelaide/season.html', 'https://afltables.com/afl/teams/swans/season.html', 'https://afltables.com/afl/teams/carlton/season.html', 'https://afltables.com/afl/teams/collingwood/season.html', 'https://afltables.com/afl/teams/essendon/season.html', 'https://afltables.com/afl/teams/goldcoast/season.html', 'https://afltables.com/afl/teams/richmond/season.html'] 
+
+for team in games_array:
+    webpage_response = requests.get(games_array[0])
+    webpage = webpage_response.content
+    soup = BeautifulSoup(webpage, "html.parser")
+    table = soup.find_all(attrs={'align':'center'})
+    rounds.append(int(table[1].text))
+
+games = max(rounds)
+
+
+
 
 
 #Creates the top row for all of the columns in the file
@@ -79,12 +77,7 @@ worksheet.cell(1, i+23).value = "Max Difference"
 j=i
 i=0
 
-#Widens all of the columns
-for i in range(1, j+23+1):
-    if i > 26:
-        worksheet.column_dimensions['A'+ string.ascii_uppercase[i-1-26]].width = 15       
-    else:
-        worksheet.column_dimensions[string.ascii_uppercase[i-1]].width = 15
+
 
 
 #Loops through all of the sites for each of the teams
@@ -178,7 +171,10 @@ for site in urls:
         sum = 0
         count = 0
         values = []
-        worksheet.cell(a+2+depth, 1).value = team[0]
+        if team[0] == "Brisbane Lions":
+            worksheet.cell(a+2+depth, 1).value = "Brisbane"
+        else:
+            worksheet.cell(a+2+depth, 1).value = team[0]
         worksheet.cell(a+2+depth, 2).value = players[a]
         #Pastes all of the disposals in the sheet with the parameters
         for t in range(0, games):
@@ -190,7 +186,7 @@ for site in urls:
                 sum = sum + int(disp[a][t])
                 count = count + 1
                 values.append(int(disp[a][t]))
-        if count > 8:
+        if count > 12:
             avg = sum/count
         else:
             avg = 0
@@ -204,32 +200,36 @@ for site in urls:
 
         worksheet.cell(a+2+depth, t+6).value = (1-norm.cdf(14, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+7).value = 1/(worksheet.cell(a+2+depth, t+6).value/100)
-        worksheet.cell(a+2+depth, t+9).value = "=" + chr(t+8+64)+str((a+2+depth))+"-"+chr(t+7+64) + str(a+2+depth)
-
+        worksheet.cell(a+2+depth, t+9).value = "=" + get_column_letter(t+8)+str((a+2+depth))+"-"+get_column_letter(t+7) + str(a+2+depth)
         
         worksheet.cell(a+2+depth, t+10).value = (1-norm.cdf(19, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+11).value = 1/(worksheet.cell(a+2+depth, t+10).value/100)
-        worksheet.cell(a+2+depth, t+13).value = "=" + chr(t+12+64)+str((a+2+depth))+"-"+chr(t+11+64)+str(a+2+depth)
+        worksheet.cell(a+2+depth, t+13).value = "=" + get_column_letter(t+12)+str((a+2+depth))+"-"+get_column_letter(t+11)+str(a+2+depth)
 
         worksheet.cell(a+2+depth, t+14).value = (1-norm.cdf(24, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+15).value = 1/(worksheet.cell(a+2+depth, t+14).value/100)
-        worksheet.cell(a+2+depth, t+17).value = ("=A" + chr(t+16+64-26)+str((a+2+depth))+"-"+"A" + chr(t+15+64-26)+str(a+2+depth))
+        worksheet.cell(a+2+depth, t+17).value = ("=" + get_column_letter(t+16)+str((a+2+depth))+"-" + get_column_letter(t+15)+str(a+2+depth))
 
         worksheet.cell(a+2+depth, t+18).value = (1-norm.cdf(29, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+19).value = 1/(worksheet.cell(a+2+depth, t+18).value/100)
-        worksheet.cell(a+2+depth, t+21).value = ("=A" + chr(t+20+64-26)+str((a+2+depth))+"-"+"A" + chr(t+19+64-26)+str(a+2+depth))
+        worksheet.cell(a+2+depth, t+21).value = ("=" + get_column_letter(t+20)+str((a+2+depth))+"-" + get_column_letter(t+19)+str(a+2+depth))
         
         worksheet.cell(a+2+depth, t+22).value = (1-norm.cdf(34, avg, worksheet.cell(a+2+depth, t+5).value))*100
         worksheet.cell(a+2+depth, t+23).value = 1/(worksheet.cell(a+2+depth, t+22).value/100)
-        worksheet.cell(a+2+depth, t+25).value = ("=A" + chr(t+24+64-26)+str((a+2+depth))+"-"+"A" + chr(t+23+64-26)+str(a+2+depth))
+        worksheet.cell(a+2+depth, t+25).value = ("=" + get_column_letter(t+24)+str((a+2+depth))+"-" + get_column_letter(t+23)+str(a+2+depth))
 
         if avg > 0:
-            worksheet.cell(a+2+depth, t+26).value = ("=MAX("+ chr(t+9+64) + str(a+2+depth) + ", A" + chr(t+13+64-26) + str(a+2+depth) + ", A" + chr(t+17+64-26) + str(a+2+depth) + ", A" + chr(t+21+64-26) + str(a+2+depth) + ", A"+ chr(t+25+64-26) + str(a+2+depth) + ")")        
+            worksheet.cell(a+2+depth, t+26).value = ("=MAX("+ get_column_letter(t+9) + str(a+2+depth) + ", " + get_column_letter(t+13) + str(a+2+depth) + ", " + get_column_letter(t+17) + str(a+2+depth) + ", " + get_column_letter(t+21) + str(a+2+depth) + ", "+ get_column_letter(t+25) + str(a+2+depth) + ")")        
         else:
             worksheet.cell(a+2+depth, t+26).value = 0
 
     depth = depth + len(players)
 
 
+#Widens all of the columns
+for i in range(1, t+27):
+        worksheet.column_dimensions[get_column_letter(i)].width = 15       
+
         
 workbook.save("Disposals Tracking.xlsx")
+

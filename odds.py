@@ -1,9 +1,8 @@
 """
 NEXT STEPS:
-Add a "STEPS" Thing below
 
-Fix the games issue
-    Scoot across the top row starting at 2 and when != avg it is the number of games
+Check last weeks odds to see if win or not
+
 
 
 """
@@ -27,11 +26,22 @@ import shutil
 import os
 
 urls = []
-games = 15
 url = ""
 warnings.filterwarnings("ignore")
 home_array = []
 away_array = []
+
+rounds = []
+games_array = ['https://afltables.com/afl/teams/adelaide/season.html', 'https://afltables.com/afl/teams/swans/season.html', 'https://afltables.com/afl/teams/carlton/season.html', 'https://afltables.com/afl/teams/collingwood/season.html', 'https://afltables.com/afl/teams/essendon/season.html', 'https://afltables.com/afl/teams/goldcoast/season.html', 'https://afltables.com/afl/teams/richmond/season.html'] 
+
+for team in games_array:
+    webpage_response = requests.get(games_array[0])
+    webpage = webpage_response.content
+    soup = BeautifulSoup(webpage, "html.parser")
+    table = soup.find_all(attrs={'align':'center'})
+    rounds.append(int(table[1].text))
+
+games = max(rounds)
 
 while url != "Run Please":
     url = input("Enter the URL of the game: ")
@@ -115,7 +125,7 @@ for j in range(0, len(urls)):
             odds_15.append(messy_odds_15[i].text)
         else:
             odds_15.append(0)
-
+    
     #Closes the accordion heading
     for i in range(0, len(disposals)):
         if disposals[i].text == "To Get 15 or More Disposals":
@@ -243,6 +253,7 @@ for j in range(0, len(urls)):
 
 bets_filename = "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Bets.xlsx"
 bets = xl.load_workbook(bets_filename)
+
 sheets = bets.sheetnames
 
 for p in range(0, len(home_array)):
@@ -250,6 +261,9 @@ for p in range(0, len(home_array)):
     y=0
 
     if sheets[0] != ("Round " + str(games+1)):
+        bets.save("C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Past Bets\\Bets.xlsx")
+        newName = "Bets Round " + str(games) + ".xlsx"
+        os.rename("C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Past Bets\\Bets.xlsx", "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Past Bets\\" + newName)
         bets_sheet = bets.create_sheet("Round " + str(games+1), 0)
     else:
         bets_sheet = bets.worksheets[0]
@@ -300,7 +314,7 @@ for p in range(0, len(home_array)):
 
     for i in range(2, m):
         if (sheet.cell(i, 1).value == home_array[p] or sheet.cell(i, 1).value == away_array[p]):
-            if sheet.cell(i, games-1+8).value is None or sheet.cell(i, games-1+7).value is None or sheet.cell(i, games-1+6).value <60:
+            if sheet.cell(i, games-1+8).value is None or sheet.cell(i, games-1+7).value is None or sheet.cell(i, games-1+6).value <70:
                 fifteen = 0
                 bets_15 = 0
                 odds_15 = 0
@@ -311,7 +325,7 @@ for p in range(0, len(home_array)):
                 odds_15 = sheet.cell(i, games-1+8).value
 
 
-            if sheet.cell(i, games-1+12).value is None or sheet.cell(i, games-1+11).value is None or sheet.cell(i, games-1+10).value <60:
+            if sheet.cell(i, games-1+12).value is None or sheet.cell(i, games-1+11).value is None or sheet.cell(i, games-1+10).value <70:
                 twenty = 0
                 bets_20 = 0
                 odds_20 = 0
@@ -321,7 +335,7 @@ for p in range(0, len(home_array)):
                 bets_20 = temp[0]
                 odds_20 = sheet.cell(i, games-1+12).value
 
-            if sheet.cell(i, games-1+16).value is None or sheet.cell(i, games-1+15).value is None or sheet.cell(i, games-1+14).value <60:
+            if sheet.cell(i, games-1+16).value is None or sheet.cell(i, games-1+15).value is None or sheet.cell(i, games-1+14).value <70:
                 twenty_five = 0
                 bets_25 = 0
                 odds_25 = 0
@@ -331,7 +345,7 @@ for p in range(0, len(home_array)):
                 bets_25 = temp[0]
                 odds_25 = sheet.cell(i, games-1+16).value
 
-            if sheet.cell(i, games-1+20).value is None or sheet.cell(i, games-1+19).value is None or sheet.cell(i, games-1+18).value <60:
+            if sheet.cell(i, games-1+20).value is None or sheet.cell(i, games-1+19).value is None or sheet.cell(i, games-1+18).value <70:
                 thirty = 0
                 bets_30 = 0
                 odds_30 = 0
@@ -341,7 +355,7 @@ for p in range(0, len(home_array)):
                 bets_30 = temp[0]
                 odds_30 = sheet.cell(i, games-1+20).value
 
-            if sheet.cell(i, games-1+24).value is None or sheet.cell(i, games-1+23).value is None or sheet.cell(i, games-1+22).value <60:
+            if sheet.cell(i, games-1+24).value is None or sheet.cell(i, games-1+23).value is None or sheet.cell(i, games-1+22).value <70:
                 thirty_five = 0
                 bets_35 = 0
                 odds_35 = 0
