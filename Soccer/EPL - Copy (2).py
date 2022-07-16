@@ -1,15 +1,8 @@
 """
 Next Steps:
-Fix it so only tomorrow's games count
-    Currently pulls out today's date in same format
-    Get it to compare to all of the dates
-    If tomorrow's date matches then run the script to pull the odds
+Fix scores for if there is a double header
+    Do a check to see if there is already that same team and if so go for the second one
 
-
-
-Sort out the past games score check
-
-Comments
 
 """
 
@@ -27,7 +20,6 @@ from selenium.webdriver.common.by import By
 from datetime import datetime, timedelta, date
 import shutil
 import os
-from datetime import datetime, timedelta, date
 
 #Bunch of options and shit for the webdriver
 chrome_options = webdriver.ChromeOptions()
@@ -39,10 +31,8 @@ chrome_options.add_argument("--incognito")
 driver = webdriver.Chrome(service=Service(ChromeDriverManager(version='104.0.5112.20').install()), options = chrome_options)
 
 
-filedate=date.today()
-filedate = (filedate.strftime('%A %#d %B %Y'))
-
-print(filedate)
+filedate=datetime.today()
+filedate = (filedate.strftime('%Y-%m-%d'))
 
 """
 #Finds the file stored in the location and saves the working sheet and saves a copy
@@ -53,9 +43,15 @@ shutil.copyfile(filename, newLocation)
 os.rename("C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Historical\\Baseball_Data.xlsx", "C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Historical\\" + newName)
 workbook = xl.load_workbook(filename)
 sheet = workbook.worksheets[0]
-"""
 
-"""
+#Finds the first row that hasn't been used
+m=1
+    
+for m in range(1, 1048576):
+    if sheet.cell(m, 1).value is None:
+        break
+m=m-1
+
 #Gets the scores for the previous day
 #------------------------------------
 
@@ -127,29 +123,6 @@ for m in range(1, 1048576):
         break
 m=m-1
 """
-#Finds the next day with games and the number of games
-#------------------------------------------------------
-webpage_response = requests.get('https://www.theguardian.com/football/premierleague/fixtures')
-webpage = webpage_response.content
-soup = BeautifulSoup(webpage, "html.parser")
-
-next_date_web_element = soup.find_all(attrs={'class':'football-matches__day'})
-
-for i in range(0, len(next_date_web_element)):
-    next_date = next_date_web_element[i].find_all(attrs={'class':'date-divider'})
-    print(next_date[0].get_text())
-
-next_date = next_date_web_element[0].find_all(attrs={'class':'date-divider'})
-
-count_games = len(next_date_web_element[0].find_all(attrs={'class':'football-teams__battleline'}))
-
-
-
-
-
-
-
-
 #Finds odds for outright wins
 #-------------------------------
 #Website that has the teams and odds
@@ -162,82 +135,88 @@ messy_teams = soup.find_all(attrs={'class':'size12_fq5j3k2 normal_fgzdi7m captio
 messy_odds = soup.find_all(attrs={'class':'size14_f7opyze bold_f1au7gae priceTextSize_frw9zm9'})
 
 
-
-
-
-
-
 #Finds big win and little win odds
 #----------------------------------
 #Stores website in the web driver
 driver.get('https://www.sportsbet.com.au/betting/soccer/united-kingdom/english-premier-league')
 
-bets = ["Over/Under 2.5 Goals", "Both Teams To Score", "Draw No Bet", "Double Chance", "Result & Both to Score"]
+#Selects the drop down box saying Big Win Little Win
+select = Select(driver.find_element(By.XPATH, '//*[@data-automation-id="market-filter-select"]'))    
+select.select_by_value('Over/Under 2.5 Goals')
 
-messy_more_odds = []
-teams =[]
-odds =[]
-count = 6
-row = 2
+#Waits for 5 seconds to let it load
+driver.implicitly_wait(5)
 
+#Pulls out odds and teams
+messy_bw_odds = driver.find_elements(By.XPATH, '//*[@data-automation-id="price-text"]')
+messy_bw_teams= driver.find_elements(By.XPATH, '//*[contains(@data-automation-id, "-two-outcome-outcome-name")]')
+
+
+teams = []
+odds = []
+over_under = []
+bw_teams = []
+
+temp2=1
+temp3=1
+temp4=0
+
+#Gets odds and teams as text and saves in list
 for a in messy_teams:
     teams.append(a.get_text())
     
 for a in messy_odds:
     odds.append(a.get_text())
 
-filename = "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Soccer\\EPL Tracker.xlsx"
-workbook = xl.load_workbook(filename)
-sheet = workbook.worksheets[0]
 
-#Finds the first row that hasn't been used
-m=1
+for a in messy_bw_odds:
+    over_under.append(a.text)
     
-for m in range(1, 1048576):
-    if sheet.cell(m, 1).value is None:
-        break
-m=m-2
+for a in messy_bw_teams:
+    bw_teams.append(a.text)
 
-for i in range(0, count_games):
-    sheet.cell(i+2+m, 1).value = teams[3*i]
-    sheet.cell(i+2+m, 2).value = teams[3*i+2]
-    sheet.cell(i+2+m, 3).value = float(odds[3*i])
-    sheet.cell(i+2+m, 4).value = float(odds[3*i+1])
-    sheet.cell(i+2+m, 5).value = float(odds[3*i+2])
+print(teams)
+print(odds)
+print(over_under)
+print(bw_teams)
 
+"""
+#Copies values to excel
+#----------------------
+#Creates list with teams and odds together
+for i in range(0, len(bw_teams)//4):
+    bw_both.append([])
+    temp = bw_teams[i*4].split("Win")
+    bw_both[i].append(temp[0])
+    for j in range(0, 4):
+        bw_both[i].append(bw_odds[temp4+j])
+    temp4=temp4+4
 
-for i in range(0, len(bets)):
-    row = 2
-    more_odds = []
-    select = Select(driver.find_element(By.XPATH, '//*[@data-automation-id="market-filter-select"]'))    
-    select.select_by_value(bets[i])
+temp4=0
+count=0
 
-    driver.implicitly_wait(5)
-    
-    messy_more_odds = driver.find_elements(By.XPATH, '//*[@data-automation-id="price-text"]')
+#Copies the values
+for i in range (1, len(teams)//2+1):
+    for j in range (1, 3):
+        temp = teams[i+i-2+j-1].split("(")
+        sheet.cell(i+m, j).value = temp[0]
+    for k in range (3, 5):
+        sheet.cell(i+m, k).value = float(odds[temp2-1+k-3])
+    temp2=temp2+6
 
-    odds = []
+#Finds difference between big win odds and outright to account for teams that don't have big win yet
+diff = ((len(teams)//2)-len(bw_both))
 
-    for a in messy_more_odds:
-        more_odds.append(float(a.text))
-
-
-    if len(more_odds) != len(teams):
-        for j in range(0, count_games):
-            sheet.cell(row+m, count).value = more_odds[j]
-            sheet.cell(row+m, count+1).value = more_odds[j+1]
-            j=j+2
-            row = row +1
-        count = count + 2
-        
+#Copies the big win values
+for i in range (1, len(bw_both)+1+diff):
+    if(sheet.cell(i+m, 1).value==bw_both[i-1-count][0]):
+        for j in range (5, 9):
+            sheet.cell(i+m, j).value = float(bw_both[i-1-count][j-4])
     else:
-        for j in range(0, count_games):
-            sheet.cell(row+m, count).value = more_odds[j]
-            sheet.cell(row+m, count+1).value = more_odds[j+1]
-            sheet.cell(row+m, count+2).value = more_odds[j+2]
-            j=j+3
-            row = row+1
-        count = count+3
+            count=count+1
 
 
-workbook.save("EPL Tracker.xlsx")
+
+workbook.save("Baseball_Data.xlsx")
+driver.quit()
+"""

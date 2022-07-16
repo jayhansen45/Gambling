@@ -3,7 +3,7 @@ NEXT STEPS:
 
 Check last weeks odds to see if win or not
 
-
+Experiment with pandas
 
 """
 
@@ -485,5 +485,7 @@ for p in range(0, len(home_array)):
 
 bets.save("Bets.xlsx")
 workbook.save("Disposals Tracking.xlsx")
+
+os.system("start EXCEL.EXE Bets.xlsx")
 
 
