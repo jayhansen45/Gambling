@@ -1,0 +1,401 @@
+[[99670 119.4
+  list(['Josh Allen', 'Christian McCaffrey', 'Leonard Fournette', 'A.J. Brown', 'Deebo Samuel', 'Christian Kirk', 'Taysom Hill', 'Detroit Lions', 'David Montgomery'])]
+ [98670 118.2
+  list(['Jalen Hurts', 'David Montgomery', 'Derrick Henry', 'A.J. Brown', 'Deebo Samuel', 'Isaiah McKenzie', 'T.J. Hockenson', 'Miami Dolphins', 'Christian McCaffrey'])]
+ [98390 118.0
+  list(['Josh Allen', 'Damien Harris', 'Christian McCaffrey', 'Donovan Peoples-Jones', 'Tyler Lockett', 'Deebo Samuel', 'Zach Ertz', 'Tampa Bay Buccaneers', 'Derrick Henry'])]
+ [98480 117.8
+  list(['Josh Allen', 'Derrick Henry', 'Damien Harris', 'Amari Cooper', 'A.J. Brown', 'Deebo Samuel', 'Tyler Conklin', 'New Orleans Saints', 'Dalvin Cook'])]
+ [97270 117.6
+  list(['Jalen Hurts', 'Derrick Henry', 'Nick Chubb', 'Jarvis Landry', 'A.J. Brown', 'Deebo Samuel', 'Tyler Conklin', 'Carolina Panthers', 'Christian McCaffrey'])]
+ [99500 117.3
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'Chase Claypool', 'Deebo Samuel', 'Christian Kirk', 'Dallas Goedert', 'Tennessee Titans', 'David Montgomery'])]
+ [98430 116.8
+  list(['Josh Allen', 'David Montgomery', 'Devin Singletary', 'Adam Thielen', 'Deebo Samuel', 'DK Metcalf', 'George Kittle', 'Minnesota Vikings', 'Christian McCaffrey'])]
+ [97200 116.7
+  list(['Josh Allen', 'Devin Singletary', 'David Montgomery', 'DeVonta Smith', 'Christian Kirk', 'Deebo Samuel', 'Dallas Goedert', 'Buffalo Bills', 'Derrick Henry'])]
+ [99920 116.4
+  list(['Josh Allen', 'Nick Chubb', 'Damien Harris', 'Deebo Samuel', 'Brandon Aiyuk', 'Corey Davis', 'Kyle Pitts', 'Jacksonville Jaguars', 'Austin Ekeler'])]
+ [97140 116.3
+  list(['Jalen Hurts', 'Derrick Henry', 'Devin Singletary', 'Deebo Samuel', 'A.J. Brown', 'Drake London', 'Taysom Hill', 'San Francisco 49ers', 'Nick Chubb'])]
+ [96680 116.2
+  list(['Josh Allen', 'Derrick Henry', 'Nick Chubb', 'CeeDee Lamb', 'Deebo Samuel', 'Isaiah McKenzie', 'Gerald Everett', 'Tampa Bay Buccaneers', 'David Montgomery'])]
+ [99750 116.1
+  list(['Jalen Hurts', 'David Montgomery', 'Miles Sanders', 'DeVonta Smith', 'Tyreek Hill', 'Deebo Samuel', 'Dallas Goedert', 'Washington Commanders', 'Christian McCaffrey'])]
+ [96270 116.0
+  list(['Josh Allen', 'Damien Harris', 'Christian McCaffrey', 'Chris Olave', 'Tyler Lockett', 'A.J. Brown', 'Taysom Hill', 'Carolina Panthers', 'Derrick Henry'])]
+ [99180 115.9
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'A.J. Brown', 'DeVante Parker', 'Mike Evans', 'Tyler Conklin', 'Seattle Seahawks', 'James Robinson'])]
+ [99200 115.8
+  list(['Josh Allen', 'Derrick Henry', 'David Montgomery', 'Stefon Diggs', 'DK Metcalf', 'Diontae Johnson', 'Taysom Hill', 'Dallas Cowboys', 'Christian McCaffrey'])]
+ [99700 115.7
+  list(['Jalen Hurts', 'David Montgomery', 'Austin Ekeler', 'CeeDee Lamb', 'Jaylen Waddle', 'Chris Olave', 'Pat Freiermuth', 'Washington Commanders', 'Christian McCaffrey'])]
+ [99460 115.6
+  list(['Josh Allen', 'Austin Ekeler', 'Derrick Henry', 'A.J. Brown', 'DeVante Parker', 'Deebo Samuel', 'Dallas Goedert', 'New Orleans Saints', 'J.D. McKissic'])]
+ [99070 115.5
+  list(['Josh Allen', 'Christian McCaffrey', 'Jamaal Williams', 'Deebo Samuel', 'Jaylen Waddle', 'Curtis Samuel', 'Tyler Higbee', 'San Francisco 49ers', 'David Montgomery'])]
+ [99510 115.4
+  list(['Josh Allen', 'Christian McCaffrey', 'Derrick Henry', 'DK Metcalf', 'Amari Cooper', 'Tyler Lockett', 'Kyle Pitts', 'New Orleans Saints', 'Jamaal Williams'])]
+ [98840 115.3
+  list(['Josh Allen', 'Dalvin Cook', 'Derrick Henry', 'Noah Brown', 'Isaiah McKenzie', 'Deebo Samuel', 'Dallas Goedert', 'Dallas Cowboys', 'Austin Ekeler'])]
+ [99160 115.2
+  list(['Jalen Hurts', 'Nick Chubb', 'Derrick Henry', 'DK Metcalf', 'Breshad Perriman', 'Drake London', 'Kyle Pitts', 'Buffalo Bills', 'Austin Ekeler'])]
+ [97840 115.1
+  list(['Jalen Hurts', 'Derrick Henry', 'Christian McCaffrey', 'Marquise Brown', 'Tyler Lockett', 'DeVonta Smith', 'Kyle Pitts', 'Miami Dolphins', 'Damien Harris'])]
+ [99660 115.0
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'A.J. Brown', 'Deebo Samuel', 'DeVante Parker', 'Irv Smith Jr.', 'Miami Dolphins', 'Drake London'])]
+ [98880 114.9
+  list(['Tom Brady', 'Nick Chubb', 'Christian McCaffrey', 'Brandin Cooks', 'Tyler Lockett', 'Deebo Samuel', 'Tyler Conklin', 'New Orleans Saints', 'Dalvin Cook'])]
+ [97450 114.8
+  list(['Tom Brady', 'Nick Chubb', 'Miles Sanders', 'Deebo Samuel', 'Drake London', 'A.J. Brown', 'Tyler Conklin', 'Dallas Cowboys', 'Christian McCaffrey'])]
+ [98660 114.7
+  list(['Josh Allen', 'Jeff Wilson Jr.', 'Austin Ekeler', 'Brandin Cooks', 'Deebo Samuel', 'Marquise Brown', 'George Kittle', 'Miami Dolphins', 'David Montgomery'])]
+ [99470 114.6
+  list(['Jalen Hurts', 'Austin Ekeler', 'Christian McCaffrey', 'Deebo Samuel', 'Julio Jones', 'Terry McLaurin', 'Dalton Schultz', 'Minnesota Vikings', 'Damien Harris'])]
+ [95530 114.5
+  list(['Josh Allen', 'Christian McCaffrey', 'Nick Chubb', 'Garrett Wilson', 'Deebo Samuel', 'DeVante Parker', 'Kyle Pitts', 'Dallas Cowboys', 'David Montgomery'])]
+ [98840 114.4
+  list(['Josh Allen', 'Derrick Henry', 'Leonard Fournette', 'Gabe Davis', 'Josh Reynolds', 'Michael Gallup', 'Dallas Goedert', 'Minnesota Vikings', 'Nick Chubb'])]
+ [99590 114.3
+  list(['Josh Allen', 'Christian McCaffrey', 'James Robinson', 'Deebo Samuel', 'Elijah Moore', 'Jarvis Landry', 'Gerald Everett', 'Carolina Panthers', 'Austin Ekeler'])]
+ [98420 114.2
+  list(['Josh Allen', 'Jamaal Williams', 'Derrick Henry', 'Diontae Johnson', 'DeVante Parker', 'Deebo Samuel', 'Irv Smith Jr.', 'San Francisco 49ers', 'Austin Ekeler'])]
+ [99750 114.1
+  list(['Trevor Lawrence', 'Jamaal Williams', 'Derrick Henry', 'A.J. Brown', 'Deebo Samuel', 'DK Metcalf', 'Dalton Schultz', 'Tampa Bay Buccaneers', 'Christian McCaffrey'])]
+ [97590 114.0
+  list(['Jalen Hurts', 'Nick Chubb', 'Leonard Fournette', 'Deebo Samuel', 'DeVonta Smith', 'Jaylen Waddle', 'Taysom Hill', 'Minnesota Vikings', 'Rashaad Penny'])]
+ [99480 113.9
+  list(['Jalen Hurts', 'David Montgomery', 'Miles Sanders', 'Cooper Kupp', 'Deebo Samuel', 'Tyler Lockett', 'Tyler Conklin', 'Los Angeles Rams', 'Nick Chubb'])]
+ [99470 113.8
+  list(['Josh Allen', 'Derrick Henry', 'Dalvin Cook', 'A.J. Brown', 'Jaylen Waddle', 'Josh Reynolds', 'George Kittle', 'Seattle Seahawks', 'Breece Hall'])]
+ [97760 113.7
+  list(['Josh Allen', 'Damien Harris', 'Dalvin Cook', 'Deebo Samuel', 'DeVante Parker', 'A.J. Brown', 'Tyler Higbee', 'Miami Dolphins', 'Najee Harris'])]
+ [97720 113.6
+  list(['Josh Allen', 'Christian McCaffrey', 'Najee Harris', 'Chris Olave', 'Deebo Samuel', 'Brandin Cooks', 'Tyler Conklin', 'Miami Dolphins', 'Jeff Wilson Jr.'])]
+ [99650 113.5
+  list(['Kyler Murray', 'Austin Ekeler', 'Derrick Henry', 'Brandin Cooks', 'Jaylen Waddle', 'Deebo Samuel', 'Dalton Schultz', 'Jacksonville Jaguars', 'David Montgomery'])]
+ [96900 113.4
+  list(['Josh Allen', 'Derrick Henry', 'Austin Ekeler', 'Chris Olave', 'George Pickens', 'DJ Moore', 'Taysom Hill', 'Dallas Cowboys', 'Christian McCaffrey'])]
+ [99570 113.3
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'Marvin Jones Jr.', 'Marquise Brown', 'DK Metcalf', 'Logan Thomas', 'Detroit Lions', 'Leonard Fournette'])]
+ [98290 113.2
+  list(['Tom Brady', 'Austin Ekeler', 'James Robinson', 'A.J. Brown', 'Josh Reynolds', 'Deebo Samuel', 'Dawson Knox', 'Detroit Lions', 'Christian McCaffrey'])]
+ [97200 113.1
+  list(['Josh Allen', 'Tyler Allgeier', 'Nick Chubb', 'Corey Davis', 'Deebo Samuel', 'Drake London', 'George Kittle', 'Jacksonville Jaguars', 'Derrick Henry'])]
+ [99460 113.0
+  list(['Josh Allen', 'Christian McCaffrey', 'Derrick Henry', 'Breshad Perriman', 'CeeDee Lamb', 'Darnell Mooney', 'Irv Smith Jr.', 'Buffalo Bills', 'Nick Chubb'])]
+ [98660 112.9
+  list(['Josh Allen', 'Dalvin Cook', 'Miles Sanders', 'CeeDee Lamb', 'Jarvis Landry', 'Deebo Samuel', 'Zach Ertz', 'Carolina Panthers', 'Nick Chubb'])]
+ [98590 112.8
+  list(['Josh Allen', 'Austin Ekeler', 'James Robinson', 'Amari Cooper', 'Tyler Lockett', 'A.J. Brown', 'Taysom Hill', 'Minnesota Vikings', 'Deebo Samuel'])]
+ [98290 112.7
+  list(['Josh Allen', 'Leonard Fournette', 'Christian McCaffrey', 'Nico Collins', 'A.J. Brown', 'George Pickens', 'Pat Freiermuth', 'Carolina Panthers', 'Derrick Henry'])]
+ [99800 112.6
+  list(['Justin Herbert', 'Dameon Pierce', 'Derrick Henry', 'Deebo Samuel', 'DeVonta Smith', 'Michael Gallup', 'George Kittle', 'Tampa Bay Buccaneers', 'Austin Ekeler'])]
+ [99510 112.5
+  list(['Josh Allen', 'Christian McCaffrey', 'Damien Harris', 'Stefon Diggs', 'Noah Brown', 'Gabe Davis', 'David Njoku', 'Buffalo Bills', 'David Montgomery'])]
+ [96520 112.4
+  list(['Josh Allen', 'Austin Ekeler', 'David Montgomery', 'Isaiah McKenzie', 'Curtis Samuel', 'Chris Olave', 'Pat Freiermuth', 'Miami Dolphins', 'Christian McCaffrey'])]
+ [99160 112.3
+  list(['Josh Allen', 'Nick Chubb', 'Tony Pollard', 'Breshad Perriman', 'Justin Jefferson', 'Deebo Samuel', 'Cole Kmet', 'Philadelphia Eagles', 'Christian McCaffrey'])]
+ [99700 112.2
+  list(['Kirk Cousins', 'Austin Ekeler', 'Derrick Henry', 'Brandin Cooks', 'Deebo Samuel', 'Jaylen Waddle', 'Zach Ertz', 'Washington Commanders', 'James Robinson'])]
+ [94360 112.1
+  list(['Josh Allen', 'Derrick Henry', 'Austin Ekeler', 'Jarvis Landry', 'Deebo Samuel', 'Corey Davis', 'Pat Freiermuth', 'Seattle Seahawks', 'Devin Singletary'])]
+ [98130 112.0
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'George Pickens', 'DeVante Parker', 'Justin Jefferson', 'Tyler Conklin', 'Philadelphia Eagles', 'Breece Hall'])]
+ [99660 111.9
+  list(['Josh Allen', 'David Montgomery', 'Christian McCaffrey', 'DeVante Parker', 'Justin Jefferson', 'Chris Godwin', 'Pat Freiermuth', 'Buffalo Bills', 'Kareem Hunt'])]
+ [98780 111.8
+  list(['Josh Allen', 'Christian McCaffrey', 'Nick Chubb', 'Mike Williams', 'Deebo Samuel', 'Christian Kirk', 'Tyler Conklin', 'San Francisco 49ers', 'Jarvis Landry'])]
+ [99680 111.7
+  list(['Josh Allen', 'Derrick Henry', 'Rashaad Penny', 'Garrett Wilson', 'Christian Kirk', 'CeeDee Lamb', 'Tyler Higbee', 'Seattle Seahawks', 'Austin Ekeler'])]
+ [96470 111.6
+  list(['Josh Allen', 'Nick Chubb', 'Christian McCaffrey', 'Elijah Moore', 'Jarvis Landry', 'A.J. Brown', 'Kyle Pitts', 'Seattle Seahawks', 'James Robinson'])]
+ [97810 111.5
+  list(['Josh Allen', 'Nick Chubb', 'Dalvin Cook', 'Tyler Lockett', 'Elijah Moore', 'A.J. Brown', 'George Kittle', 'Los Angeles Rams', 'David Montgomery'])]
+ [97680 111.4
+  list(['Jalen Hurts', 'Christian McCaffrey', 'Derrick Henry', 'DeVonta Smith', 'Jaylen Waddle', 'Darnell Mooney', 'Evan Engram', 'Buffalo Bills', 'Damien Harris'])]
+ [97640 111.3
+  list(['Kyler Murray', 'Christian McCaffrey', 'Nick Chubb', 'Marquise Brown', 'Brandin Cooks', 'Deebo Samuel', 'Irv Smith Jr.', 'Tampa Bay Buccaneers', 'David Montgomery'])]
+ [97330 111.2
+  list(['Jalen Hurts', 'Jamaal Williams', 'Christian McCaffrey', 'Jarvis Landry', 'Robert Woods', 'Deebo Samuel', 'Irv Smith Jr.', 'Washington Commanders', 'Austin Ekeler'])]
+ [90780 111.1
+  list(['Jalen Hurts', 'David Montgomery', 'Damien Harris', 'A.J. Brown', 'CeeDee Lamb', 'DJ Moore', 'Pat Freiermuth', 'Minnesota Vikings', 'Derrick Henry'])]
+ [99910 111.0
+  list(['Josh Allen', 'Christian McCaffrey', 'Damien Harris', 'Elijah Moore', 'CeeDee Lamb', 'Brandon Aiyuk', 'T.J. Hockenson', 'Buffalo Bills', 'James Conner'])]
+ [98310 110.9
+  list(['Josh Allen', 'Antonio Gibson', 'James Robinson', 'Deebo Samuel', 'Amari Cooper', 'Tyler Lockett', 'Tyler Higbee', 'San Francisco 49ers', 'Leonard Fournette'])]
+ [99850 110.8
+  list(['Jalen Hurts', 'James Conner', 'Devin Singletary', 'Gabe Davis', 'Deebo Samuel', 'A.J. Brown', 'T.J. Hockenson', 'Jacksonville Jaguars', 'James Robinson'])]
+ [97800 110.7
+  list(['Josh Allen', 'Dalvin Cook', 'Ezekiel Elliott', 'Christian Kirk', 'Noah Brown', 'Mike Evans', 'Taysom Hill', 'Minnesota Vikings', 'Derrick Henry'])]
+ [98380 110.6
+  list(['Jalen Hurts', 'Christian McCaffrey', 'Michael Carter', 'Christian Kirk', 'DK Metcalf', 'Deebo Samuel', 'Gerald Everett', 'Miami Dolphins', 'Jeff Wilson Jr.'])]
+ [99520 110.5
+  list(['Kyler Murray', 'Christian McCaffrey', 'Travis Etienne Jr.', 'Diontae Johnson', 'A.J. Brown', 'Deebo Samuel', 'Kyle Pitts', 'New Orleans Saints', 'Nick Chubb'])]
+ [96940 110.4
+  list(['Josh Allen', 'Rashaad Penny', 'Nick Chubb', 'Darnell Mooney', 'A.J. Brown', 'Diontae Johnson', 'T.J. Hockenson', 'Washington Commanders', 'Austin Ekeler'])]
+ [99030 110.3
+  list(['Josh Allen', 'Derrick Henry', 'Rhamondre Stevenson', 'Chase Claypool', 'Gabe Davis', 'Mike Evans', 'George Kittle', 'Minnesota Vikings', 'Damien Harris'])]
+ [94420 110.2
+  list(['Josh Allen', 'Dalvin Cook', 'Rashaad Penny', 'Deebo Samuel', 'Brandon Aiyuk', 'DeVante Parker', 'Pat Freiermuth', 'Tennessee Titans', 'Derrick Henry'])]
+ [99300 110.1
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'Amon-Ra St. Brown', 'Christian Kirk', 'A.J. Brown', 'Taysom Hill', 'Jacksonville Jaguars', 'Nelson Agholor'])]
+ [99830 110.0
+  list(['Josh Allen', 'Alvin Kamara', 'Derrick Henry', 'DeVonta Smith', 'Chris Godwin', 'Drake London', 'Irv Smith Jr.', 'Minnesota Vikings', 'Jamaal Williams'])]
+ [99470 109.9
+  list(['Justin Herbert', 'Devin Singletary', 'Damien Harris', 'Darnell Mooney', 'Cooper Kupp', 'Deebo Samuel', 'George Kittle', 'Seattle Seahawks', 'Nick Chubb'])]
+ [98110 109.8
+  list(['Jalen Hurts', 'Damien Harris', 'Christian McCaffrey', 'Chase Claypool', 'A.J. Brown', 'Brandin Cooks', 'Dalton Schultz', 'San Francisco 49ers', 'Dalvin Cook'])]
+ [96680 109.7
+  list(['Davis Mills', 'Derrick Henry', 'Christian McCaffrey', 'DK Metcalf', 'Drake London', 'A.J. Brown', 'Tyler Conklin', 'Philadelphia Eagles', 'Austin Ekeler'])]
+ [99410 109.6
+  list(['Teddy Bridgewater', 'Miles Sanders', 'James Robinson', 'Tyreek Hill', 'Amari Cooper', 'Deebo Samuel', 'Pat Freiermuth', 'Tampa Bay Buccaneers', 'Derrick Henry'])]
+ [97920 109.5
+  list(['Kirk Cousins', 'Jamaal Williams', 'Austin Ekeler', 'Mike Williams', 'DK Metcalf', 'Deebo Samuel', 'Zach Ertz', 'Carolina Panthers', 'Nick Chubb'])]
+ [96520 109.4
+  list(['Jalen Hurts', 'Derrick Henry', 'David Montgomery', 'Drake London', 'DeVante Parker', 'Stefon Diggs', 'Zach Ertz', 'New Orleans Saints', 'Breece Hall'])]
+ [98610 109.3
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'Cooper Kupp', 'George Pickens', 'DeVante Parker', 'Cole Kmet', 'Washington Commanders', 'A.J. Brown'])]
+ [96770 109.2
+  list(['Josh Allen', 'Austin Ekeler', 'Damien Harris', 'Michael Gallup', 'DJ Moore', 'Garrett Wilson', 'Dawson Knox', 'Minnesota Vikings', 'Leonard Fournette'])]
+ [98640 109.1
+  list(['Tom Brady', 'Christian McCaffrey', 'Austin Ekeler', 'Deebo Samuel', 'Gabe Davis', 'Diontae Johnson', 'Evan Engram', 'San Francisco 49ers', 'Tony Pollard'])]
+ [99330 109.0
+  list(['Geno Smith', 'David Montgomery', 'Christian McCaffrey', 'A.J. Brown', 'Chris Olave', 'Stefon Diggs', 'Zach Ertz', 'New Orleans Saints', 'Damien Harris'])]
+ [98570 108.9
+  list(['Josh Allen', 'Derrick Henry', 'Damien Harris', 'DK Metcalf', 'Corey Davis', 'Gabe Davis', 'Zach Ertz', 'Miami Dolphins', 'Tyreek Hill'])]
+ [92010 108.8
+  list(['Josh Allen', 'Christian McCaffrey', 'David Montgomery', 'Josh Reynolds', 'Diontae Johnson', 'Deebo Samuel', 'Kyle Pitts', 'New Orleans Saints', 'Christian Kirk'])]
+ [99150 108.7
+  list(['Josh Allen', 'Christian McCaffrey', 'Jamaal Williams', 'Jaylen Waddle', 'DK Metcalf', 'Allen Robinson II', 'Gerald Everett', 'Dallas Cowboys', 'James Conner'])]
+ [97280 108.6
+  list(['Tom Brady', 'Austin Ekeler', 'Miles Sanders', 'Jaylen Waddle', 'Diontae Johnson', 'Mike Williams', 'Dallas Goedert', 'Miami Dolphins', 'David Montgomery'])]
+ [97660 108.5
+  list(['Josh Allen', 'Alvin Kamara', 'Derrick Henry', 'Chris Olave', 'George Pickens', 'Chase Claypool', 'Kyle Pitts', 'Detroit Lions', 'Christian McCaffrey'])]
+ [99910 108.4
+  list(['Jalen Hurts', 'Alexander Mattison', 'Austin Ekeler', 'DJ Moore', 'Deebo Samuel', 'CeeDee Lamb', 'Kyle Pitts', 'New Orleans Saints', 'Dalvin Cook'])]
+ [96570 108.3
+  list(['Jalen Hurts', 'Derrick Henry', 'Damien Harris', 'Jarvis Landry', 'Keenan Allen', 'Chris Godwin', 'Tyler Higbee', 'Carolina Panthers', 'Austin Ekeler'])]
+ [99120 108.2
+  list(['Josh Allen', 'Christian McCaffrey', 'Leonard Fournette', 'Elijah Moore', 'Curtis Samuel', 'DeVonta Smith', 'Gerald Everett', 'Tennessee Titans', 'Rashaad Penny'])]
+ [98400 108.1
+  list(['Tom Brady', 'Nick Chubb', 'Austin Ekeler', 'Mike Evans', 'Tyler Lockett', 'Julio Jones', 'David Njoku', 'San Francisco 49ers', 'Jamaal Williams'])]
+ [99670 108.0
+  list(['Ryan Tannehill', 'Dalvin Cook', 'Jamaal Williams', 'Jaylen Waddle', 'Deebo Samuel', 'Amon-Ra St. Brown', 'George Kittle', 'Washington Commanders', 'Nick Chubb'])]
+ [98610 107.9
+  list(['Josh Allen', 'James Robinson', 'Devin Singletary', 'Tyreek Hill', 'Deebo Samuel', 'Elijah Moore', 'Zach Ertz', 'Detroit Lions', 'A.J. Brown'])]
+ [99040 107.8
+  list(['Josh Allen', 'Miles Sanders', 'Najee Harris', 'Deebo Samuel', 'Jakobi Meyers', 'DK Metcalf', 'Irv Smith Jr.', 'Buffalo Bills', 'Breece Hall'])]
+ [94660 107.7
+  list(['Josh Allen', 'Austin Ekeler', 'Breece Hall', 'Brandin Cooks', 'Isaiah McKenzie', 'Deebo Samuel', 'Pat Freiermuth', 'Tennessee Titans', 'Antonio Gibson'])]
+ [92570 107.6
+  list(['Josh Allen', 'Derrick Henry', "D'Andre Swift", 'Drake London', 'Chris Olave', 'DeVonta Smith', 'Gerald Everett', 'Seattle Seahawks', 'David Montgomery'])]
+ [98680 107.5
+  list(['Josh Allen', 'Alvin Kamara', 'Nick Chubb', 'Amon-Ra St. Brown', 'Diontae Johnson', 'Brandin Cooks', 'Taysom Hill', 'Tampa Bay Buccaneers', 'James Robinson'])]
+ [97890 107.4
+  list(['Kyler Murray', 'Leonard Fournette', 'Christian McCaffrey', 'DJ Moore', 'Josh Reynolds', 'Deebo Samuel', 'Tyler Higbee', 'Tennessee Titans', 'Miles Sanders'])]
+ [96070 107.3
+  list(['Josh Allen', 'Christian McCaffrey', 'Dalvin Cook', 'A.J. Brown', 'DeVante Parker', 'Julio Jones', 'Cole Kmet', 'San Francisco 49ers', "D'Andre Swift"])]]
+
+[[99670 131.1
+  list(['Josh Allen', 'Christian McCaffrey', 'Leonard Fournette', 'A.J. Brown', 'Deebo Samuel', 'Christian Kirk', 'Taysom Hill', 'Detroit Lions', 'David Montgomery'])]
+ [98670 130.3
+  list(['Jalen Hurts', 'David Montgomery', 'Derrick Henry', 'A.J. Brown', 'Deebo Samuel', 'Isaiah McKenzie', 'T.J. Hockenson', 'Miami Dolphins', 'Christian McCaffrey'])]
+ [98390 129.9
+  list(['Josh Allen', 'Damien Harris', 'Christian McCaffrey', 'Donovan Peoples-Jones', 'Tyler Lockett', 'Deebo Samuel', 'Zach Ertz', 'Tampa Bay Buccaneers', 'Derrick Henry'])]
+ [99500 129.4
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'Chase Claypool', 'Deebo Samuel', 'Christian Kirk', 'Dallas Goedert', 'Tennessee Titans', 'David Montgomery'])]
+ [98480 129.3
+  list(['Josh Allen', 'Derrick Henry', 'Damien Harris', 'Amari Cooper', 'A.J. Brown', 'Deebo Samuel', 'Tyler Conklin', 'New Orleans Saints', 'Dalvin Cook'])]
+ [97200 128.9
+  list(['Josh Allen', 'Devin Singletary', 'David Montgomery', 'DeVonta Smith', 'Christian Kirk', 'Deebo Samuel', 'Dallas Goedert', 'Buffalo Bills', 'Derrick Henry'])]
+ [98430 128.7
+  list(['Josh Allen', 'David Montgomery', 'Devin Singletary', 'Adam Thielen', 'Deebo Samuel', 'DK Metcalf', 'George Kittle', 'Minnesota Vikings', 'Christian McCaffrey'])]
+ [98840 128.5
+  list(['Jalen Hurts', 'Christian McCaffrey', 'Damien Harris', 'Chris Olave', 'Deebo Samuel', 'Drake London', 'George Kittle', 'Buffalo Bills', 'Devin Singletary'])]
+ [97270 128.4
+  list(['Jalen Hurts', 'Derrick Henry', 'Nick Chubb', 'Jarvis Landry', 'A.J. Brown', 'Deebo Samuel', 'Tyler Conklin', 'Carolina Panthers', 'Christian McCaffrey'])]
+ [99940 128.3
+  list(['Jacoby Brissett', 'David Montgomery', 'Christian McCaffrey', 'Tyler Lockett', 'Deebo Samuel', 'Tyreek Hill', 'T.J. Hockenson', 'Buffalo Bills', 'Derrick Henry'])]
+ [98190 128.2
+  list(['Josh Allen', 'Derrick Henry', 'Breece Hall', 'Drake London', 'A.J. Brown', 'CeeDee Lamb', 'Gerald Everett', 'Miami Dolphins', 'Damien Harris'])]
+ [95750 128.1
+  list(['Josh Allen', 'Christian McCaffrey', 'David Montgomery', 'Deebo Samuel', 'Jarvis Landry', 'Mike Williams', 'T.J. Hockenson', 'Tampa Bay Buccaneers', 'Damien Harris'])]
+ [96270 128.0
+  list(['Josh Allen', 'Damien Harris', 'Christian McCaffrey', 'Chris Olave', 'Tyler Lockett', 'A.J. Brown', 'Taysom Hill', 'Carolina Panthers', 'Derrick Henry'])]
+ [97840 127.9
+  list(['Jalen Hurts', 'Derrick Henry', 'Christian McCaffrey', 'Marquise Brown', 'Tyler Lockett', 'DeVonta Smith', 'Kyle Pitts', 'Miami Dolphins', 'Damien Harris'])]
+ [96510 127.8
+  list(['Jalen Hurts', 'Austin Ekeler', 'David Montgomery', 'Deebo Samuel', 'Chris Olave', 'Brandon Aiyuk', 'Kyle Pitts', 'Washington Commanders', 'Derrick Henry'])]
+ [98020 127.7
+  list(['Josh Allen', 'James Robinson', 'David Montgomery', 'Robert Woods', 'Deebo Samuel', 'Curtis Samuel', 'Dallas Goedert', 'Miami Dolphins', 'Christian McCaffrey'])]
+ [98820 127.6
+  list(['Josh Allen', 'James Robinson', 'Rashaad Penny', 'DK Metcalf', 'Tyler Lockett', 'Jaylen Waddle', 'Dallas Goedert', 'Minnesota Vikings', 'Christian McCaffrey'])]
+ [99640 127.5
+  list(['Josh Allen', 'Christian McCaffrey', 'David Montgomery', 'Cooper Kupp', 'Chris Olave', 'Michael Gallup', 'Cole Kmet', 'Washington Commanders', 'Derrick Henry'])]
+ [96590 127.4
+  list(['Jalen Hurts', 'James Robinson', 'Christian McCaffrey', 'Chris Godwin', 'DK Metcalf', 'Deebo Samuel', 'Pat Freiermuth', 'Buffalo Bills', 'David Montgomery'])]
+ [98030 127.3
+  list(['Jalen Hurts', 'Austin Ekeler', 'Derrick Henry', 'Donovan Peoples-Jones', 'A.J. Brown', 'CeeDee Lamb', 'Dallas Goedert', 'Minnesota Vikings', 'David Montgomery'])]
+ [99460 127.2
+  list(['Josh Allen', 'Austin Ekeler', 'Derrick Henry', 'A.J. Brown', 'DeVante Parker', 'Deebo Samuel', 'Dallas Goedert', 'New Orleans Saints', 'J.D. McKissic'])]
+ [99850 127.1
+  list(['Jalen Hurts', 'David Montgomery', 'Derrick Henry', 'Gabe Davis', 'Deebo Samuel', 'Cooper Kupp', 'Dawson Knox', 'Dallas Cowboys', 'Jamaal Williams'])]
+ [99460 127.0
+  list(['Josh Allen', 'Devin Singletary', 'Damien Harris', 'Deebo Samuel', 'Marquise Brown', 'Chris Godwin', 'Dawson Knox', 'Miami Dolphins', 'Christian McCaffrey'])]
+ [99080 126.9
+  list(['Josh Allen', 'Nick Chubb', 'Austin Ekeler', 'Tyler Lockett', 'Drake London', 'Brandin Cooks', 'Zach Ertz', 'Miami Dolphins', 'Damien Harris'])]
+ [99070 126.8
+  list(['Josh Allen', 'David Montgomery', 'Derrick Henry', 'Tyreek Hill', 'Marquise Brown', 'Deebo Samuel', 'Dawson Knox', 'New Orleans Saints', 'Jamaal Williams'])]
+ [99070 126.7
+  list(['Josh Allen', 'Christian McCaffrey', 'Jamaal Williams', 'Deebo Samuel', 'Jaylen Waddle', 'Curtis Samuel', 'Tyler Higbee', 'San Francisco 49ers', 'David Montgomery'])]
+ [99470 126.6
+  list(['Jalen Hurts', 'Austin Ekeler', 'Christian McCaffrey', 'Deebo Samuel', 'Julio Jones', 'Terry McLaurin', 'Dalton Schultz', 'Minnesota Vikings', 'Damien Harris'])]
+ [99990 126.5
+  list(['Josh Allen', 'Damien Harris', 'Derrick Henry', 'Jaylen Waddle', 'Drake London', 'Chris Godwin', 'Logan Thomas', 'Carolina Panthers', 'Austin Ekeler'])]
+ [99480 126.4
+  list(['Jalen Hurts', 'David Montgomery', 'Miles Sanders', 'Cooper Kupp', 'Deebo Samuel', 'Tyler Lockett', 'Tyler Conklin', 'Los Angeles Rams', 'Nick Chubb'])]
+ [98850 126.3
+  list(['Jalen Hurts', 'David Montgomery', 'Rashaad Penny', 'Deebo Samuel', 'Stefon Diggs', 'Jarvis Landry', 'Dallas Goedert', 'Tampa Bay Buccaneers', 'Austin Ekeler'])]
+ [98660 126.2
+  list(['Josh Allen', 'Jeff Wilson Jr.', 'Austin Ekeler', 'Brandin Cooks', 'Deebo Samuel', 'Marquise Brown', 'George Kittle', 'Miami Dolphins', 'David Montgomery'])]
+ [99250 126.1
+  list(['Josh Allen', 'David Montgomery', 'Jamaal Williams', 'Deebo Samuel', 'Jaylen Waddle', 'Cooper Kupp', 'T.J. Hockenson', 'Washington Commanders', 'Tyler Allgeier'])]
+ [99160 126.0
+  list(['Jalen Hurts', 'Nick Chubb', 'Derrick Henry', 'DK Metcalf', 'Breshad Perriman', 'Drake London', 'Kyle Pitts', 'Buffalo Bills', 'Austin Ekeler'])]
+ [98610 125.9
+  list(['Jalen Hurts', 'Austin Ekeler', 'Nick Chubb', 'DK Metcalf', 'DeVonta Smith', 'Christian Kirk', 'Taysom Hill', 'Dallas Cowboys', 'Derrick Henry'])]
+ [99840 125.8
+  list(['Josh Allen', 'Christian McCaffrey', 'David Montgomery', 'Cooper Kupp', 'Breshad Perriman', 'DK Metcalf', 'Tyler Higbee', 'Minnesota Vikings', 'Kareem Hunt'])]
+ [99420 125.7
+  list(['Jimmy Garoppolo', 'Derrick Henry', 'Christian McCaffrey', 'Tyler Lockett', 'Cooper Kupp', 'Deebo Samuel', 'Tyler Conklin', 'Miami Dolphins', 'Rashaad Penny'])]
+ [99170 125.6
+  list(['Jalen Hurts', 'Austin Ekeler', 'Tony Pollard', 'Josh Reynolds', 'Deebo Samuel', 'Tyreek Hill', 'Taysom Hill', 'Jacksonville Jaguars', 'Christian McCaffrey'])]
+ [99030 125.5
+  list(['Josh Allen', 'Christian McCaffrey', 'Dameon Pierce', 'Deebo Samuel', 'Tyreek Hill', 'Tyler Lockett', 'Cole Kmet', 'Washington Commanders', 'Devin Singletary'])]
+ [98530 125.4
+  list(['Josh Allen', 'Damien Harris', 'Christian McCaffrey', 'Amon-Ra St. Brown', 'Deebo Samuel', 'DK Metcalf', 'Gerald Everett', 'Dallas Cowboys', 'Michael Carter'])]
+ [99720 125.3
+  list(['Jalen Hurts', 'Kareem Hunt', 'Ezekiel Elliott', 'Christian Kirk', 'Deebo Samuel', 'A.J. Brown', 'Evan Engram', 'Minnesota Vikings', 'Christian McCaffrey'])]
+ [97760 125.2
+  list(['Josh Allen', 'Damien Harris', 'Dalvin Cook', 'Deebo Samuel', 'DeVante Parker', 'A.J. Brown', 'Tyler Higbee', 'Miami Dolphins', 'Najee Harris'])]
+ [98880 125.1
+  list(['Tom Brady', 'Nick Chubb', 'Christian McCaffrey', 'Brandin Cooks', 'Tyler Lockett', 'Deebo Samuel', 'Tyler Conklin', 'New Orleans Saints', 'Dalvin Cook'])]
+ [99650 125.0
+  list(['Kyler Murray', 'Austin Ekeler', 'Derrick Henry', 'Brandin Cooks', 'Jaylen Waddle', 'Deebo Samuel', 'Dalton Schultz', 'Jacksonville Jaguars', 'David Montgomery'])]
+ [97720 124.9
+  list(['Josh Allen', 'Christian McCaffrey', 'Najee Harris', 'Chris Olave', 'Deebo Samuel', 'Brandin Cooks', 'Tyler Conklin', 'Miami Dolphins', 'Jeff Wilson Jr.'])]
+ [98660 124.8
+  list(['Jalen Hurts', 'Damien Harris', 'James Robinson', 'Diontae Johnson', 'Cooper Kupp', 'Elijah Moore', 'Pat Freiermuth', 'Tampa Bay Buccaneers', 'Derrick Henry'])]
+ [99340 124.7
+  list(['Jalen Hurts', 'Breece Hall', 'Christian McCaffrey', 'Diontae Johnson', 'Marquise Brown', 'Deebo Samuel', 'Pat Freiermuth', 'Philadelphia Eagles', 'Nick Chubb'])]
+ [97590 124.6
+  list(['Jalen Hurts', 'Nick Chubb', 'Leonard Fournette', 'Deebo Samuel', 'DeVonta Smith', 'Jaylen Waddle', 'Taysom Hill', 'Minnesota Vikings', 'Rashaad Penny'])]
+ [99510 124.5
+  list(['Josh Allen', 'Christian McCaffrey', 'Damien Harris', 'Stefon Diggs', 'Noah Brown', 'Gabe Davis', 'David Njoku', 'Buffalo Bills', 'David Montgomery'])]
+ [98920 124.4
+  list(['Jalen Hurts', 'Leonard Fournette', 'Breece Hall', 'Garrett Wilson', 'Chris Godwin', 'Deebo Samuel', 'Tyler Conklin', 'Washington Commanders', 'Christian McCaffrey'])]
+ [99700 124.3
+  list(['Kirk Cousins', 'Austin Ekeler', 'Derrick Henry', 'Brandin Cooks', 'Deebo Samuel', 'Jaylen Waddle', 'Zach Ertz', 'Washington Commanders', 'James Robinson'])]
+ [98140 124.2
+  list(['Tom Brady', 'Derrick Henry', 'Breece Hall', 'Deebo Samuel', 'DK Metcalf', 'A.J. Brown', 'Dallas Goedert', 'Buffalo Bills', 'Travis Etienne Jr.'])]
+ [99910 124.1
+  list(['Josh Allen', 'Christian McCaffrey', 'Damien Harris', 'Elijah Moore', 'CeeDee Lamb', 'Brandon Aiyuk', 'T.J. Hockenson', 'Buffalo Bills', 'James Conner'])]
+ [99620 124.0
+  list(['Josh Allen', 'Damien Harris', 'James Robinson', 'Mike Evans', 'Amon-Ra St. Brown', 'DJ Moore', 'Dallas Goedert', 'Buffalo Bills', 'Breece Hall'])]
+ [98380 123.9
+  list(['Jalen Hurts', 'Christian McCaffrey', 'Michael Carter', 'Christian Kirk', 'DK Metcalf', 'Deebo Samuel', 'Gerald Everett', 'Miami Dolphins', 'Jeff Wilson Jr.'])]
+ [91970 123.8
+  list(['Josh Allen', 'Derrick Henry', 'Breece Hall', 'Deebo Samuel', 'Tyler Lockett', 'Amari Cooper', 'Cole Kmet', 'Jacksonville Jaguars', 'David Montgomery'])]
+ [95820 123.7
+  list(['Kirk Cousins', 'Derrick Henry', 'David Montgomery', 'Jaylen Waddle', 'Chris Olave', 'Deebo Samuel', 'T.J. Hockenson', 'Detroit Lions', 'Nick Chubb'])]
+ [97680 123.6
+  list(['Jalen Hurts', 'Christian McCaffrey', 'Derrick Henry', 'DeVonta Smith', 'Jaylen Waddle', 'Darnell Mooney', 'Evan Engram', 'Buffalo Bills', 'Damien Harris'])]
+ [99680 123.5
+  list(['Josh Allen', 'Derrick Henry', 'Rashaad Penny', 'Garrett Wilson', 'Christian Kirk', 'CeeDee Lamb', 'Tyler Higbee', 'Seattle Seahawks', 'Austin Ekeler'])]
+ [95980 123.4
+  list(['Josh Allen', 'James Robinson', 'Damien Harris', 'Drake London', 'Tyreek Hill', 'Deebo Samuel', 'Dalton Schultz', 'Carolina Panthers', 'Ezekiel Elliott'])]
+ [96180 123.3
+  list(['Jalen Hurts', 'James Robinson', 'Nick Chubb', 'Tyler Lockett', 'Christian Kirk', 'CeeDee Lamb', 'Pat Freiermuth', 'Seattle Seahawks', 'Derrick Henry'])]
+ [98660 123.2
+  list(['Josh Allen', 'Dalvin Cook', 'Miles Sanders', 'CeeDee Lamb', 'Jarvis Landry', 'Deebo Samuel', 'Zach Ertz', 'Carolina Panthers', 'Nick Chubb'])]
+ [98530 123.1
+  list(['Jacoby Brissett', 'Derrick Henry', 'Damien Harris', 'DeVonta Smith', 'Cooper Kupp', 'Breshad Perriman', 'T.J. Hockenson', 'Miami Dolphins', 'Christian McCaffrey'])]
+ [99660 123.0
+  list(['Josh Allen', 'David Montgomery', 'Christian McCaffrey', 'DeVante Parker', 'Justin Jefferson', 'Chris Godwin', 'Pat Freiermuth', 'Buffalo Bills', 'Kareem Hunt'])]
+ [96470 122.9
+  list(['Josh Allen', 'Nick Chubb', 'Christian McCaffrey', 'Elijah Moore', 'Jarvis Landry', 'A.J. Brown', 'Kyle Pitts', 'Seattle Seahawks', 'James Robinson'])]
+ [99760 122.8
+  list(['Josh Allen', 'Mark Ingram II', 'Christian McCaffrey', 'Amari Cooper', 'Deebo Samuel', 'CeeDee Lamb', 'T.J. Hockenson', 'Tampa Bay Buccaneers', 'Jamaal Williams'])]
+ [99430 122.7
+  list(['Josh Allen', 'Alvin Kamara', 'Nick Chubb', 'Tyler Lockett', 'Cooper Kupp', 'Isaiah McKenzie', 'Taysom Hill', 'Tampa Bay Buccaneers', 'David Montgomery'])]
+ [99520 122.6
+  list(['Kyler Murray', 'Christian McCaffrey', 'Travis Etienne Jr.', 'Diontae Johnson', 'A.J. Brown', 'Deebo Samuel', 'Kyle Pitts', 'New Orleans Saints', 'Nick Chubb'])]
+ [97450 122.5
+  list(['Josh Allen', 'J.D. McKissic', 'Derrick Henry', 'Mike Evans', 'Deebo Samuel', 'CeeDee Lamb', 'Taysom Hill', 'Jacksonville Jaguars', 'Rhamondre Stevenson'])]
+ [98780 122.4
+  list(['Josh Allen', 'Christian McCaffrey', 'Nick Chubb', 'Mike Williams', 'Deebo Samuel', 'Christian Kirk', 'Tyler Conklin', 'San Francisco 49ers', 'Jarvis Landry'])]
+ [93180 122.3
+  list(['Josh Allen', 'David Montgomery', 'Christian McCaffrey', 'Breshad Perriman', 'Christian Kirk', 'Adam Thielen', 'T.J. Hockenson', 'New Orleans Saints', 'Damien Harris'])]
+ [94360 122.2
+  list(['Josh Allen', 'Derrick Henry', 'Austin Ekeler', 'Jarvis Landry', 'Deebo Samuel', 'Corey Davis', 'Pat Freiermuth', 'Seattle Seahawks', 'Devin Singletary'])]
+ [97800 122.1
+  list(['Josh Allen', 'Dalvin Cook', 'Ezekiel Elliott', 'Christian Kirk', 'Noah Brown', 'Mike Evans', 'Taysom Hill', 'Minnesota Vikings', 'Derrick Henry'])]
+ [99360 122.0
+  list(['Jalen Hurts', 'Christian McCaffrey', 'Rashaad Penny', 'Deebo Samuel', 'Chris Godwin', 'Christian Kirk', 'Dallas Goedert', 'Tampa Bay Buccaneers', 'Robert Woods'])]
+ [99650 121.9
+  list(['Jalen Hurts', 'Austin Ekeler', 'Rashaad Penny', 'DK Metcalf', 'Mike Evans', 'CeeDee Lamb', 'David Njoku', 'Minnesota Vikings', 'Raheem Mostert'])]
+ [99680 121.8
+  list(['Josh Allen', 'Tyler Allgeier', 'James Robinson', 'Chris Olave', 'DK Metcalf', 'Tyreek Hill', 'Dallas Goedert', 'Minnesota Vikings', "D'Andre Swift"])]
+ [99460 121.7
+  list(['Josh Allen', 'Damien Harris', 'Christian McCaffrey', 'Marquise Brown', 'Elijah Moore', 'Jaylen Waddle', 'Pat Freiermuth', 'Tennessee Titans', 'James Conner'])]
+ [97840 121.6
+  list(['Jared Goff', 'Leonard Fournette', 'David Montgomery', 'Deebo Samuel', 'Christian Kirk', 'Brandin Cooks', 'Dallas Goedert', 'Carolina Panthers', 'Austin Ekeler'])]
+ [99830 121.5
+  list(['Josh Allen', 'Alvin Kamara', 'Derrick Henry', 'DeVonta Smith', 'Chris Godwin', 'Drake London', 'Irv Smith Jr.', 'Minnesota Vikings', 'Jamaal Williams'])]
+ [98250 121.4
+  list(['Josh Allen', 'Damien Harris', 'Christian McCaffrey', 'Mike Evans', 'Zay Jones', 'Marquise Brown', 'Kyle Pitts', 'San Francisco 49ers', 'Tyler Lockett'])]
+ [92010 121.3
+  list(['Josh Allen', 'Christian McCaffrey', 'David Montgomery', 'Josh Reynolds', 'Diontae Johnson', 'Deebo Samuel', 'Kyle Pitts', 'New Orleans Saints', 'Christian Kirk'])]
+ [98570 121.2
+  list(['Josh Allen', 'Derrick Henry', 'Damien Harris', 'DK Metcalf', 'Corey Davis', 'Gabe Davis', 'Zach Ertz', 'Miami Dolphins', 'Tyreek Hill'])]
+ [89460 121.1
+  list(['Jalen Hurts', 'James Robinson', 'Dameon Pierce', 'Deebo Samuel', 'DeVante Parker', 'Jaylen Waddle', 'Tyler Conklin', 'Minnesota Vikings', 'Damien Harris'])]
+ [98610 121.0
+  list(['Josh Allen', 'Derrick Henry', 'Christian McCaffrey', 'Cooper Kupp', 'George Pickens', 'DeVante Parker', 'Cole Kmet', 'Washington Commanders', 'A.J. Brown'])]
+ [96940 120.9
+  list(['Josh Allen', 'Rashaad Penny', 'Nick Chubb', 'Darnell Mooney', 'A.J. Brown', 'Diontae Johnson', 'T.J. Hockenson', 'Washington Commanders', 'Austin Ekeler'])]
+ [94420 120.8
+  list(['Josh Allen', 'Dalvin Cook', 'Rashaad Penny', 'Deebo Samuel', 'Brandon Aiyuk', 'DeVante Parker', 'Pat Freiermuth', 'Tennessee Titans', 'Derrick Henry'])]
+ [98880 120.7
+  list(['Justin Herbert', 'Raheem Mostert', 'David Montgomery', 'Tyreek Hill', 'Mike Evans', 'A.J. Brown', 'T.J. Hockenson', 'New Orleans Saints', 'Damien Harris'])]
+ [99760 120.6
+  list(['Josh Allen', 'Damien Harris', 'Christian McCaffrey', 'Josh Reynolds', 'Stefon Diggs', 'A.J. Brown', 'George Kittle', 'San Francisco 49ers', 'Jarvis Landry'])]
+ [97920 120.5
+  list(['Kirk Cousins', 'Jamaal Williams', 'Austin Ekeler', 'Mike Williams', 'DK Metcalf', 'Deebo Samuel', 'Zach Ertz', 'Carolina Panthers', 'Nick Chubb'])]
+ [96570 120.4
+  list(['Jalen Hurts', 'Derrick Henry', 'Damien Harris', 'Jarvis Landry', 'Keenan Allen', 'Chris Godwin', 'Tyler Higbee', 'Carolina Panthers', 'Austin Ekeler'])]
+ [96770 120.3
+  list(['Josh Allen', 'Austin Ekeler', 'Damien Harris', 'Michael Gallup', 'DJ Moore', 'Garrett Wilson', 'Dawson Knox', 'Minnesota Vikings', 'Leonard Fournette'])]
+ [99260 120.2
+  list(['Jalen Hurts', 'Antonio Gibson', 'Christian McCaffrey', 'Justin Jefferson', 'Zay Jones', 'Drake London', 'T.J. Hockenson', 'San Francisco 49ers', 'Ezekiel Elliott'])]
+ [99910 120.1
+  list(['Jalen Hurts', 'Alexander Mattison', 'Austin Ekeler', 'DJ Moore', 'Deebo Samuel', 'CeeDee Lamb', 'Kyle Pitts', 'New Orleans Saints', 'Dalvin Cook'])]
+ [97660 120.0
+  list(['Josh Allen', 'Alvin Kamara', 'Derrick Henry', 'Chris Olave', 'George Pickens', 'Chase Claypool', 'Kyle Pitts', 'Detroit Lions', 'Christian McCaffrey'])]
+ [97280 119.9
+  list(['Tom Brady', 'Austin Ekeler', 'Miles Sanders', 'Jaylen Waddle', 'Diontae Johnson', 'Mike Williams', 'Dallas Goedert', 'Miami Dolphins', 'David Montgomery'])]
+ [93430 119.8
+  list(['Josh Allen', 'Ezekiel Elliott', 'Derrick Henry', 'Brandon Aiyuk', 'Deebo Samuel', 'Robert Woods', 'Taysom Hill', 'Tampa Bay Buccaneers', 'Dameon Pierce'])]
+ [99150 119.7
+  list(['Josh Allen', 'Christian McCaffrey', 'Jamaal Williams', 'Jaylen Waddle', 'DK Metcalf', 'Allen Robinson II', 'Gerald Everett', 'Dallas Cowboys', 'James Conner'])]
+ [97090 119.6
+  list(['Ryan Tannehill', 'Austin Ekeler', 'Derrick Henry', 'Deebo Samuel', 'Zay Jones', 'Christian Kirk', 'George Kittle', 'Buffalo Bills', 'Tyler Allgeier'])]
+ [99540 119.5
+  list(['Cooper Rush', 'Christian McCaffrey', 'Derrick Henry', 'Elijah Moore', 'Mike Williams', 'Jaylen Waddle', 'Tyler Conklin', 'Buffalo Bills', 'Leonard Fournette'])]
+ [99670 119.4
+  list(['Carson Wentz', 'Rhamondre Stevenson', 'Leonard Fournette', 'Deebo Samuel', 'A.J. Brown', 'Drake London', 'Irv Smith Jr.', 'Minnesota Vikings', 'Nick Chubb'])]
+ [96400 119.3
+  list(['Josh Allen', 'Christian McCaffrey', 'Damien Harris', 'A.J. Brown', 'DJ Moore', 'Nico Collins', 'Gerald Everett', 'Tampa Bay Buccaneers', 'Christian Kirk'])]]
