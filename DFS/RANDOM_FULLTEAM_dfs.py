@@ -126,7 +126,7 @@ high_top_100 = np.array(high_blank)
 
 combinations = []
 
-for i in range(0, 3000000):
+for i in range(0, 100000000):
     if math.floor(i/100000) == i/100000:
         print(i)
         print()
