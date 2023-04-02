@@ -11,6 +11,7 @@ import openpyxl as xl
 from bs4 import BeautifulSoup
 import pandas as pd
 from selenium import webdriver
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
@@ -20,25 +21,43 @@ from selenium.webdriver.common.by import By
 from datetime import datetime, timedelta, date
 import shutil
 import os
+from datetime import datetime, timedelta, date
+import time
+from selenium.webdriver.common.action_chains import ActionChains
 
 #Bunch of options and shit for the webdriver
 chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = "C:\\Program Files\\Google\\Chrome Beta\\Application\\chrome.exe"
+#chrome_options.binary_location = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
+chrome_options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 chrome_options.add_argument('--no-sandbox')
 chrome_options.headless = True
 chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument("--incognito")
-driver = webdriver.Chrome(service=Service(ChromeDriverManager(version='104.0.5112.20').install()), options = chrome_options)
+driver = webdriver.Chrome(ChromeDriverManager(version='111.0.5563.64').install(), options = chrome_options)
 
-filedate=datetime.today()
-filedate = (filedate.strftime('%Y-%m-%d'))
+filedate=date.today()
+day = (filedate.strftime('%d/%m/%Y'))
+day_site = (filedate.strftime('%A'))
+filedate = (filedate.strftime('%A %#d %B %Y'))
+tomorrow = date.today()+timedelta(days = 1)
+tomorrow_site = (tomorrow.strftime('%a'))
 
-#Finds the file stored in the location and saves the working sheet and saves a copy
-filename ="C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Baseball_Data.xlsx"
-newLocation = "C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Historical\\Baseball_Data.xlsx"
-newName = "Baseball_Data_" + filedate + ".xlsx"
+#Personal Laptop
+"""
+filename = "C:\\Users\\jayha\\Documents\\Gambling\\Automated\\MLB\\MLB Tracker.xlsx"
+newLocation = "C:\\Users\\jayha\\Documents\\Gambling\\Automated\\MLB\\Historical\\MLB Tracker.xlsx"
+newName = "MLB " + filedate + ".xlsx"
+#shutil.copyfile(filename, newLocation)
+#os.rename("C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\MLB\\Historical\\MLB Tracker.xlsx", "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\MLB\\Historical\\" + newName)
+"""
+
+#Work Laptop
+filename = "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\MLB\\MLB Tracker.xlsx"
+newLocation = "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\MLB\\Historical\\MLB Tracker.xlsx"
+newName = "MLB " + filedate + ".xlsx"
 shutil.copyfile(filename, newLocation)
-os.rename("C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Historical\\Baseball_Data.xlsx", "C:\\Users\\jayha\\Documents\\Gambling\\Automated\\Historical\\" + newName)
+os.rename("C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\MLB\\Historical\\MLB Tracker.xlsx", "C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\MLB\\Historical\\" + newName)
+
 workbook = xl.load_workbook(filename)
 sheet = workbook.worksheets[0]
 
@@ -121,94 +140,160 @@ for m in range(1, 1048576):
         break
 m=m-1
 
-#Finds odds for outright wins
-#-------------------------------
-#Website that has the teams and odds
-webpage_response = requests.get('https://www.sportsbet.com.au/betting/baseball/mlb-matches')
-webpage = webpage_response.content
-soup = BeautifulSoup(webpage, "html.parser")
-
-#Pulls out the teams and odds
-messy_teams = soup.find_all(attrs={'class':'size14_f7opyze Endeavour_fhudrb0 medium_f1wf24vo participantText_fivg86r'})
-messy_odds = soup.find_all(attrs={'class':'size14_f7opyze bold_f1au7gae priceTextSize_frw9zm9'})
 
 
-#Finds big win and little win odds
-#----------------------------------
-#Stores website in the web driver
-driver.get('https://www.sportsbet.com.au/betting/baseball/mlb-matches')
+games_num = 15
 
-#Selects the drop down box saying Big Win Little Win
-select = Select(driver.find_element(By.XPATH, '//*[@data-automation-id="market-filter-select"]'))    
-select.select_by_value('Big Win Little Win')
+if games_num > 0:
 
-#Waits for 5 seconds to let it load
-driver.implicitly_wait(5)
-
-#Pulls out odds and teams
-messy_bw_odds = driver.find_elements(By.XPATH, '//*[@data-automation-id="price-text"]')
-messy_bw_teams= driver.find_elements(By.XPATH, '//*[contains(@data-automation-id, "-column-grid-outcome-name")]')
-
-
-teams = []
-odds = []
-bw_odds = []
-bw_teams = []
-bw_both = []
-
-temp2=1
-temp3=1
-temp4=0
-
-#Gets odds and teams as text and saves in list
-for a in messy_teams:
-    teams.append(a.get_text())
+    #Finds odds for outright wins
+    #-------------------------------
+    #Website that has the teams and odds
+    webpage_response = requests.get('https://www.sportsbet.com.au/betting/baseball/mlb-matches')
+    webpage = webpage_response.content
+    soup = BeautifulSoup(webpage, "html.parser")
     
-for a in messy_odds:
-    odds.append(a.get_text())
-
-for a in messy_bw_odds:
-    bw_odds.append(a.text)
     
-for a in messy_bw_teams:
-    bw_teams.append(a.text)
+    #Pulls out the teams and odds
+    messy_teams_JUST = soup.find_all(attrs={'class':'size14_f7opyze Endeavour_fhudrb0 medium_f1wf24vo participantText_fivg86r'})
+    messy_odds = soup.find_all(attrs={'class':'size14_f7opyze bold_f1au7gae priceTextSize_frw9zm9'})
+    
 
-#Copies values to excel
-#----------------------
-#Creates list with teams and odds together
-for i in range(0, len(bw_teams)//4):
-    bw_both.append([])
-    temp = bw_teams[i*4].split("Win")
-    bw_both[i].append(temp[0])
-    for j in range(0, 4):
-        bw_both[i].append(bw_odds[temp4+j])
-    temp4=temp4+4
+    #Finds big win and little win odds
+    #----------------------------------
+    #Stores website in the web driver
+    driver.get('https://www.sportsbet.com.au/betting/baseball/mlb-matches')
 
-temp4=0
-count=0
+    bets = ["Total Runs", "Money Line", "Double Result", "Lead after 3rd Inning", "Lead after 6th Inning", "Most Hits", "Race to 3 Runs", "Race to 4 Runs", "Race to 5 Runs", "Race to 6 Runs", "Team with Highest Scoring Inning", "Team to Score Last Wins Game", "Team to Score Last", "Tri-Bet", "Tri-Bet 2", "Tri-Bet 3"]
 
-#Copies the values
-for i in range (1, len(teams)//2+1):
-    for j in range (1, 3):
-        temp = teams[i+i-2+j-1].split("(")
-        sheet.cell(i+m, j).value = temp[0]
-    for k in range (3, 5):
-        sheet.cell(i+m, k).value = float(odds[temp2-1+k-3])
-    temp2=temp2+6
+    messy_more_odds = []
+    odds =[]
+    count = 3
+    row = 2
+    teams_JUST = []
 
-#Finds difference between big win odds and outright to account for teams that don't have big win yet
-diff = ((len(teams)//2)-len(bw_both))
-
-#Copies the big win values
-for i in range (1, len(bw_both)+1+diff):
-    if(sheet.cell(i+m, 1).value==bw_both[i-1-count][0]):
-        for j in range (5, 9):
-            sheet.cell(i+m, j).value = float(bw_both[i-1-count][j-4])
-    else:
-            count=count+1
+    for a in messy_teams_JUST:
+        teams_JUST.append(a.get_text())
 
 
+    #Finds the first row that hasn't been used
+    m=1
+        
+    for m in range(1, 1048576):
+        if sheet.cell(m, 1).value is None:
+            break
+    m=m-2
 
-workbook.save("Baseball_Data.xlsx")
+    for i in range(0, games_num):
+        sheet.cell(i+2+m, 2).value = teams_JUST[2*i]
+        sheet.cell(i+2+m, 3).value = teams_JUST[2*i+1]
+
+    more_odds = []
+
+    for i in range(0, len(bets)):
+        print(bets[i])
+        row = 2
+        teams =[]
+
+        select = Select(driver.find_element(By.XPATH, '//*[@data-automation-id="market-filter-select"]'))    
+        select.select_by_value("Show All Markets")
+        time.sleep(10)
+        markets = driver.find_elements(By.CLASS_NAME, "market_fjig9r4")
+        action = ActionChains(driver)
+
+        for j in range(0, len(markets)):
+            if bets[i] == markets[j].text:
+                element = markets[j]
+
+        action.click(on_element = element)
+        action.perform()
+        time.sleep(5)
+        messy_teams = driver.find_elements(By.XPATH, "//*[contains(@data-automation-id, 'competition-event-participant')]")
+        for a in messy_teams:
+            teams.append(a.text)
+        
+        messy_more_odds = driver.find_elements(By.XPATH, '//*[@data-automation-id="price-text"]')
+        more_odds = []
+        odds = []
+        messy_total_points = []
+        total_points = []
+        
+
+        for a in messy_more_odds:
+            if a.text == "Suspended":
+                more_odds.append(0)
+            else:
+                more_odds.append(float(a.text))
+
+        total_games = len(teams)/3
+        print(total_games)
+
+
+        if bets[i] == "Total Runs":
+            messy_total_points = driver.find_elements(By.XPATH, "//*[contains(@data-automation-id, '-outcome-outcome-name')]")
+            j = 0
+            for a in range(0, len(messy_total_points), 2):
+                    temp = messy_total_points[a].text
+                    temp2 = temp.split("(")
+                    temp3 = temp2[1].split(")")
+                    total_points.append(float(temp3[0]))
+            
+            for row in range(2, games_num + 2):
+                sheet.cell(row+m, 4).value = total_points[row-2]
+                
+        if len(more_odds) == total_games*2:
+            j = 0
+            for row in range(2, int(total_games) + 2):
+                sheet.cell(row+m, count+2).value = more_odds[j]
+                sheet.cell(row+m, count+1+2).value = more_odds[j+1]
+                j=j+2
+            count = count + 2
+
+        elif len(more_odds) == total_games*3:
+            j = 0
+            for row in range(2, int(total_games) + 2):
+                sheet.cell(row+m, count+2).value = more_odds[j]
+                sheet.cell(row+m, count+1+2).value = more_odds[j+1]
+                sheet.cell(row+m, count+2+2).value = more_odds[j+2]
+                j=j+3
+            count = count+3
+            
+        elif len(more_odds) == total_games*4:
+            j = 0
+            for row in range(2, int(total_games) + 2):
+                print(j)
+                sheet.cell(row+m, count+2).value = more_odds[j]
+                sheet.cell(row+m, count+1+2).value = more_odds[j+1]
+                sheet.cell(row+m, count+2+2).value = more_odds[j+2]
+                sheet.cell(row+m, count+3+2).value = more_odds[j+3]
+                j=j+4
+            count = count+4
+            
+        elif len(more_odds) == total_games*5:
+            j = 0
+            for row in range(2, int(total_games) + 2):
+                sheet.cell(row+m, count+2).value = more_odds[j]
+                sheet.cell(row+m, count+1+2).value = more_odds[j+1]
+                sheet.cell(row+m, count+2+2).value = more_odds[j+2]
+                sheet.cell(row+m, count+3+2).value = more_odds[j+3]
+                sheet.cell(row+m, count+4+2).value = more_odds[j+4]
+                j=j+5
+            count = count+5
+            
+        elif len(more_odds) == total_games*6:
+            j = 0
+            for row in range(2, int(total_games) + 2):
+                sheet.cell(row+m, count+2).value = more_odds[j]
+                sheet.cell(row+m, count+1+2).value = more_odds[j+1]
+                sheet.cell(row+m, count+2+2).value = more_odds[j+2]
+                sheet.cell(row+m, count+3+2).value = more_odds[j+3]
+                sheet.cell(row+m, count+4+2).value = more_odds[j+4]
+                sheet.cell(row+m, count+5+2).value = more_odds[j+5]
+                j=j+6
+            count = count+6
+        print("Done")
+
+
+workbook.save("MLB Tracker.xlsx")
 driver.quit()
 
