@@ -139,7 +139,7 @@ for a in range(1, m):
 
 workbook.save("C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\MLB\\Historical\\" + newName + " - Results.xlsx")
 
-games_num = 14
+games_num = 13
 
 if games_num > 0:
 
@@ -181,9 +181,13 @@ if games_num > 0:
             break
     m=m-2
 
+    
+
     for i in range(0, games_num):
-        sheet.cell(i+2+m, 2).value = teams_JUST[2*i]
-        sheet.cell(i+2+m, 3).value = teams_JUST[2*i+1]
+        a = teams_JUST[2*i].split(" (")[0]
+        b = teams_JUST[2*i+1].split(" (")[0]
+        sheet.cell(i+2+m, 2).value = a
+        sheet.cell(i+2+m, 3).value = b
 
     more_odds = []
 
