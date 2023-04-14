@@ -121,6 +121,8 @@ for i in range(0, len(scores)):
     odds_both[i].append(odds_teams[i])
     odds_both[i].append(scores[i])
 
+print(messy_scores)
+print('https://sports.yahoo.com/mlb/scoreboard/?confId=&schedState=2&dateRange=', yesterday)
 
 #Saves the scores in the correct cell based on the associated team
 for a in range(0, m):
@@ -139,7 +141,7 @@ for a in range(1, m):
 
 workbook.save("C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\MLB\\Historical\\" + newName + " - Results.xlsx")
 
-games_num = 13
+games_num = 4
 
 if games_num > 0:
 
