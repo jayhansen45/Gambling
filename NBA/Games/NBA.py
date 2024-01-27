@@ -21,7 +21,7 @@ chrome_options = webdriver.ChromeOptions()
 #chrome_options.binary_location = "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe"
 chrome_options.binary_location = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 chrome_options.add_argument('--no-sandbox')
-chrome_options.headless = True
+#chrome_options.headless = True
 chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument("--incognito")
 driver = webdriver.Chrome(executable_path=r"C:\\Users\\jhansen3\\OneDrive - KPMG\\Documents\\Python\\Gambling\\Other\\Chrome Driver\\chromedriver.exe", options = chrome_options)
@@ -169,7 +169,9 @@ if games != 0:
     #----------------------------------
     #Stores website in the web driver
 
-    bets = ["Total Points", "Match Betting", "Big Win Little Win", "Winning Margin (Four Bands)", "Winning Margin (10 Pt)", "Winning Margin (Bands)", "Handicap Betting", "Double Result", "Tri-Bet", "Wire To Wire"]
+    #Add in Total Points
+
+    bets = ["Match Betting", "Big Win Little Win", "Winning Margin (Four Bands)", "Winning Margin (10 Pt)", "Winning Margin (Bands)", "Handicap Betting", "Double Result", "Tri-Bet"]
     messy_more_odds = []
     odds =[]
     count = 7
