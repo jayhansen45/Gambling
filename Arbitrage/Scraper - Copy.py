@@ -82,8 +82,8 @@ for sport in sports:
         print("Sportsbet " + sports_text[int(sport)-1].split(" ")[1])
 
         #options to access values in each site
-        site_text = ["https://www.sportsbet.com.au/betting/australian-rules/afl", "https://www.sportsbet.com.au/betting/rugby-league/nrl", "https://www.sportsbet.com.au/betting/ice-hockey-us/nhl-games", "https://www.sportsbet.com.au/betting/basketball-us/nba", "https://www.sportsbet.com.au/betting/baseball/mlb-matches", "https://www.sportsbet.com.au/betting/cricket/indian-premier-league", "https://www.sportsbet.com.au/betting/soccer/united-kingdom/english-premier-league"]
-        bets = ["Head to Head", "Head to Head", "Moneyline", "Match Betting", "Money Line", "Match Betting", "Win-Draw-Win"]
+        site_text = ["https://www.sportsbet.com.au/betting/australian-rules/afl", "https://www.sportsbet.com.au/betting/rugby-league/nrl", "https://www.sportsbet.com.au/betting/ice-hockey-us/nhl-matches", "https://www.sportsbet.com.au/betting/basketball-us/nba", "https://www.sportsbet.com.au/betting/baseball/mlb-matches", "https://www.sportsbet.com.au/betting/cricket/indian-premier-league", "https://www.sportsbet.com.au/betting/soccer/united-kingdom/english-premier-league"]
+        bets = ["Head to Head", "Head to Head", "Money Line", "Match Betting", "Money Line", "Match Betting", "Win-Draw-Win"]
         driver.get(site_text[int(sport)-1])
         global sportsbet_teams
         sportsbet_teams = []
@@ -126,7 +126,7 @@ for sport in sports:
                 sheet.cell(count + m, 1).value = sportsbet_teams[count]
                 sheet.cell(count + m, 2).value = more_odds[count]
 
-    #Find new column for it
+
     def bet_deluxe(sports):
         print("Bet Deluxe  " + sports_text[int(sport)-1].split(" ")[1])
         #options to access values in each site
@@ -179,13 +179,14 @@ for sport in sports:
                     teams.append(0)
                 else:
                     teams.append(float(messy_odds[count].text))        
+        print(teams)
 
         #does the match and then saves values in the right cells
         if (sport!="7"):           
             for i in range(0, len(teams), 2):
                 for j in range(0, len(sportsbet_teams)):
                     if teams[i] == sportsbet_teams[j]:
-                        sheet.cell(j+m, 11).value = teams[i+1]
+                        sheet.cell(j+m, 3).value = teams[i+1]
         #Not fucking working
         else:
             for count, i in enumerate(sportsbet_teams):
@@ -209,11 +210,10 @@ for sport in sports:
                             sheet.cell(count+m, 3).value = teams[num+1]
             """
                             
-
+    #The odds are stored in a stupid secnodary span of the same class?????
     def betr(sports):
         print("BetR  " + sports_text[int(sport)-1].split(" ")[1])
         #options to access values in each site
-        site_text = ["", "", "https://betr.com.au/sportsbook#/sport/1006/competition/1000623/1002652", "https://betr.com.au/sportsbook#/sport/13/competition/1000649/1003042"]
         bets = ["", "", ""]
         driver.get(site_text[int(sport)-1])
         teams = []
@@ -222,7 +222,8 @@ for sport in sports:
 
         messy_teams = driver.find_elements(By.XPATH, '//*[@class="OddsButton_priceType__ROL+V SportsMarketCard_priceTypeText__iiWi2"]')
 
-        messy_odds = driver.find_elements(By.XPATH, '//*[@data-testid="win_odds_button_price_value"]')
+
+        messy_odds = driver.find_elements(By.XPATH, '//*[@class="errtm9l13 css-16r7ucc-Text-Text-sportsStyles-styled-sportsStyles__OddsText-sportsStyles-styled ea6hjv30"]')
 
         for count, a in enumerate(messy_teams):
             teams.append(a.text)
@@ -230,6 +231,7 @@ for sport in sports:
                 teams.append(0)
             else:
                 teams.append(float(messy_odds[count].text))
+        
 
 
         #does the match and then saves values in the right cells
@@ -237,231 +239,6 @@ for sport in sports:
             for j in range(0, len(sportsbet_teams)):
                 if teams[i] == sportsbet_teams[j]:
                     sheet.cell(j+m, 3).value = teams[i+1]
-
-    def bet365(sports):
-        print("Bet365  " + sports_text[int(sport)-1].split(" ")[1])
-        #options to access values in each site
-        site_text = ["", "", "", "https://www.bet365.com.au/#/AC/B18/C20604387/D48/E1453/F10/"]
-        bets = ["", "", ""]
-        driver.get(site_text[int(sport)-1])
-        teams = []
-
-        time.sleep(10)
-
-        messy_teams = driver.find_elements(By.XPATH, '//*[@class="scb-ParticipantFixtureDetailsHigherBasketball_Team"]')
-
-        messy_odds = driver.find_elements(By.XPATH, '//*[@class="sac-ParticipantOddsOnly50OTB_Odds"]')
-
-        for count, a in enumerate(messy_teams):
-            teams.append(a.text)
-            if messy_odds[count].text == "Suspended":
-                teams.append(0)
-            else:
-                teams.append(float(messy_odds[count].text))
-
-
-        #does the match and then saves values in the right cells
-        for i in range(0, len(teams), 2):
-            for j in range(0, len(sportsbet_teams)):
-                if teams[i] == sportsbet_teams[j]:
-                    sheet.cell(j+m, 7).value = teams[i+1]
-
-    def bet_nation(sports):
-        print("Bet Nation  " + sports_text[int(sport)-1].split(" ")[1])
-        #options to access values in each site
-        site_text = ["", "", "", "https://betnation.com.au/sports/basketball/nba-1000003"]
-        bets = ["", "", ""]
-        driver.get(site_text[int(sport)-1])
-        teams = []
-
-        time.sleep(10)
-
-        messy_teams = driver.find_elements(By.XPATH, '//*[@class="css-ggkqa9-sportsStyles-styled-sportsStyles__OuterTitleContainer-sportsStyles-styled errtm9l20"]')
-
-        messy_odds = driver.find_elements(By.XPATH, '//*[@class="css-1jslun9-sportsStyles-styled-sportsStyles__BetText-sportsStyles-styled errtm9l12"]')
-
-        for count, a in enumerate(messy_teams):
-            teams.append(a.text)
-            if messy_odds[count].text == "Suspended":
-                teams.append(0)
-            else:
-                teams.append(float(messy_odds[count].text))
-
-
-        #does the match and then saves values in the right cells
-        for i in range(0, len(teams), 2):
-            for j in range(0, len(sportsbet_teams)):
-                if teams[i] == sportsbet_teams[j]:
-                    sheet.cell(j+m, 8).value = teams[i+1]
-        """
-    def colossalbet(sports):
-        print("Colossal Bet  " + sports_text[int(sport)-1].split(" ")[1])
-        #options to access values in each site
-        site_text = ["", "", "", "https://www.colossalbet.com.au/sport/all/basketball/nba"]
-        bets = ["", "", ""]
-        driver.get(site_text[int(sport)-1])
-        teams = []
-
-        time.sleep(10)
-
-        messy_teams = driver.find_elements(By.XPATH, '//*[@class="mb-2 text-black font-14 font-medium"]')
-
-        print(messy_teams)
-
-        for count, t in enumerate(messy_teams):
-            messy_teams[count] = t.text.split(' (')[0]
-
-        messy_odds = driver.find_elements(By.XPATH, '//*[@class="text-black font-16 font-extrabold"]')
-
-        for count, a in enumerate(messy_teams):
-            teams.append(a)
-            if messy_odds[count].text == "Suspended":
-                teams.append(0)
-            else:
-                teams.append(float(messy_odds[count].text))
-
-
-        #does the match and then saves values in the right cells
-        for i in range(0, len(teams), 2):
-            for j in range(0, len(sportsbet_teams)):
-                if teams[i] == sportsbet_teams[j]:
-                    sheet.cell(j+m, 12).value = teams[i+1]
-        """
-
-    def okebet(sports):
-        print("OkeBet  " + sports_text[int(sport)-1].split(" ")[1])
-        #options to access values in each site
-        site_text = ["", "", "", "https://okebet.com.au/sports/basketball/nba-1000002"]
-        bets = ["", "", ""]
-        driver.get(site_text[int(sport)-1])
-        teams = []
-        temp = []
-
-        time.sleep(10)
-
-        messy_teams = driver.find_elements(By.XPATH, '//*[@class="errtm9l15 css-115g8u-Text-Text-sportsStyles-styled-sportsStyles__SelectionTitleText-sportsStyles-styled ea6hjv30"]')
-
-        messy_odds = driver.find_elements(By.XPATH, '//*[@class="errtm9l13 css-16r7ucc-Text-Text-sportsStyles-styled-sportsStyles__OddsText-sportsStyles-styled ea6hjv30"]')
-
-        for w in messy_odds[::2]:
-            temp.append(w)
-        
-        for count, a in enumerate(messy_teams):
-            teams.append(a.text)
-            if temp[count].text == "Suspended":
-                teams.append(0)
-            else:
-                teams.append(float(temp[count].text))
-
-
-        #does the match and then saves values in the right cells
-        for i in range(0, len(teams), 2):
-            for j in range(0, len(sportsbet_teams)):
-                if teams[i] == sportsbet_teams[j]:
-                    sheet.cell(j+m, 13).value = teams[i+1]
-
-    def realbookie(sports):
-        print("Real Bookie  " + sports_text[int(sport)-1].split(" ")[1])
-        #options to access values in each site
-        site_text = ["", "", "", "https://www.realbookie.com.au/sports/basketball/nba-1000003"]
-        bets = ["", "", ""]
-        driver.get(site_text[int(sport)-1])
-        teams = []
-        temp = []
-
-        time.sleep(10)
-
-        messy_teams = driver.find_elements(By.XPATH, '//*[@class="errtm9l15 css-115g8u-Text-Text-sportsStyles-styled-sportsStyles__SelectionTitleText-sportsStyles-styled ea6hjv30"]')
-
-        messy_odds = driver.find_elements(By.XPATH, '//*[@class="errtm9l13 css-16r7ucc-Text-Text-sportsStyles-styled-sportsStyles__OddsText-sportsStyles-styled ea6hjv30"]')
-
-        for w in messy_odds[::2]:
-            temp.append(w)
-        
-        for count, a in enumerate(messy_teams):
-            teams.append(a.text)
-            if temp[count].text == "Suspended":
-                teams.append(0)
-            else:
-                teams.append(float(temp[count].text))
-
-
-        #does the match and then saves values in the right cells
-        for i in range(0, len(teams), 2):
-            for j in range(0, len(sportsbet_teams)):
-                if teams[i] == sportsbet_teams[j]:
-                    sheet.cell(j+m, 14).value = teams[i+1]
-
-    def unibet(sports):
-        print("Unibet  " + sports_text[int(sport)-1].split(" ")[1])
-        #options to access values in each site
-        site_text = ["", "", "", "https://www.unibet.com.au/betting/sports/filter/basketball/nba/all/matches"]
-        bets = ["", "", ""]
-        driver.get(site_text[int(sport)-1])
-        teams = []
-
-        time.sleep(10)
-
-        messy_teams = driver.find_elements(By.XPATH, '//*[@class="ca197 isExpandedView"]')
-
-        messy_odds = driver.find_elements(By.XPATH, '//*[@class="_8e013"]')
-
-        #Include if there is a featured bets thing
-        #messy_odds = messy_odds[6:]
-
-
-        temp = []
-
-        for count, t in enumerate(messy_odds[3::4]):
-            messy_odds.pop(count)
-
-        for count, t in enumerate(messy_odds[2::3]):
-            messy_odds.pop(count)
-
-
-        for count, a in enumerate(messy_teams):
-            teams.append(a.text)
-            teams.append(float(messy_odds[count].text))
-
-
-        #does the match and then saves values in the right cells
-        for i in range(0, len(teams), 2):
-            for j in range(0, len(sportsbet_teams)):
-                if teams[i] == sportsbet_teams[j]:
-                    sheet.cell(j+m, 9).value = teams[i+1]
-
-
-    def getsetbet(sports):
-        print("GetSetBet  " + sports_text[int(sport)-1].split(" ")[1])
-        #options to access values in each site
-        site_text = ["", "", "", "https://www.getsetbet.com.au/sports/basketball/nba-1000042"]
-        bets = ["", "", ""]
-        driver.get(site_text[int(sport)-1])
-        teams = []
-        temp = []
-
-        time.sleep(10)
-
-        messy_teams = driver.find_elements(By.XPATH, '//*[@class="errtm9l15 css-115g8u-Text-Text-sportsStyles-styled-sportsStyles__SelectionTitleText-sportsStyles-styled ea6hjv30"]')
-
-        messy_odds = driver.find_elements(By.XPATH, '//*[@class="errtm9l13 css-16r7ucc-Text-Text-sportsStyles-styled-sportsStyles__OddsText-sportsStyles-styled ea6hjv30"]')
-
-        for w in messy_odds[::2]:
-            temp.append(w)
-        
-        for count, a in enumerate(messy_teams):
-            teams.append(a.text)
-            if temp[count].text == "Suspended":
-                teams.append(0)
-            else:
-                teams.append(float(temp[count].text))
-
-
-        #does the match and then saves values in the right cells
-        for i in range(0, len(teams), 2):
-            for j in range(0, len(sportsbet_teams)):
-                if teams[i] == sportsbet_teams[j]:
-                    sheet.cell(j+m, 10).value = teams[i+1]
 
     def boombet(sports):
         print("BoomBet  " + sports_text[int(sport)-1].split(" ")[1])
@@ -550,7 +327,7 @@ for sport in sports:
             messy_teams = driver.find_elements(By.XPATH, '//*[@class="teamName"]')
 
 
-            messy_odds = driver.find_elements(By.XPATH, '//*[@class="betlink oddsColumn"]')
+            messy_odds = driver.find_elements(By.XPATH, '//*[@class="button betlink button-default"]')
 
             temp = []
             for y in messy_odds:
@@ -634,18 +411,9 @@ for sport in sports:
     sportsbet(sports)
     #betright(sports)
     #bet_deluxe(sports)
-    betr(sports)
+    #betr(sports)
     #boombet(sports)
     midasbet(sports)
-    #bet365(sports)
-    #bet_nation(sports)
-    unibet(sports)
-    getsetbet(sports)
-    #colossalbet(sports)
-    okebet(sports)
-    realbookie(sports)
-
-    workbook.save("Arbitrage.xlsx")
 
     #Will need to make this a loop for each sheet in the excel
     #Finds which row "Max" is in
@@ -679,7 +447,7 @@ for sport in sports:
                 sheet.cell(row-2, max_col+2).value = sheet.cell(row, max_col+2).value 
 
 
-
 workbook.save("Arbitrage.xlsx")
+#os.system(filename)
 driver.quit()
 
