@@ -1,0 +1,29 @@
+NBA Saturday 20,000
+	PG
+	PG
+	SG
+	SG
+	SF
+	SF
+	PF
+	PF
+	C
+	
+Steps
+	Download the projections from Sportsline
+	Download the salaries from draftstars
+	Copy DK projections in Data sheet and split across the positions
+	Run the code
+	
+	
+	
+Improvedments
+	Automate all the above steps
+	
+	
+	
+	
+To Do
+	ML Code
+	Fullteam code
+	

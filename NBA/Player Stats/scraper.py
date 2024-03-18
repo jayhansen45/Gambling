@@ -42,7 +42,7 @@ for j in range(0, len(site_array)):
     for k in range(0, len(bold_links)):
         if bold_links[k].find('a') != None:
             temp = bold_links[k].find('a').get('href').split('.html')
-            site = "https://www.basketball-reference.com" + temp[0] + "/gamelog/2023"
+            site = "https://www.basketball-reference.com" + temp[0] + "/gamelog/2024"
             webpage_response2 = requests.get(site)
             webpage2 = webpage_response2.content
             soup2 = BeautifulSoup(webpage2, "html.parser")
